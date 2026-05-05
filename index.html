@@ -94,6 +94,7 @@ nav{
   backdrop-filter:blur(24px) saturate(180%);
   border-bottom:1px solid var(--border);
   transition:all 0.4s var(--ease);
+  overflow:hidden;
 }
 nav.scrolled{padding:0.8rem 4rem;background:rgba(10,10,15,0.9)}
 .nav-logo{
@@ -595,18 +596,96 @@ footer{
 ::-webkit-scrollbar-thumb{background:var(--muted2);border-radius:2px}
 
 /* MOBILE */
+/* ── TABLET ── */
 @media(max-width:900px){
-  #hero{grid-template-columns:1fr;padding:2rem;padding-top:90px;text-align:center;gap:3rem}
-  .hero-left{padding:2rem 0 0}
-  .hero-eye,.hero-btns,.hero-stats{justify-content:center}
-  .hero-right{order:-1}
-  .photo-wrapper{width:240px;height:280px}
+  /* NAV */
   nav{padding:1rem 1.5rem}
   nav.scrolled{padding:0.7rem 1.5rem}
-  .section-wrap{padding:3.5rem 1.5rem}
-  .about-grid,.edu-grid,.contact-inner{grid-template-columns:1fr}
+  .nav-links{gap:1.2rem}
+  .nav-links a{font-size:9px}
+  .nav-cv{padding:4px 10px;font-size:9px!important}
+  .nav-cta{padding:5px 12px}
+
+  /* HERO */
+  #hero{grid-template-columns:1fr;padding:1.5rem;padding-top:85px;text-align:center;gap:2rem}
+  .hero-left{padding:1rem 0 0}
+  .hero-eye,.hero-btns,.hero-stats{justify-content:center}
+  .hero-right{order:-1}
+  .photo-wrapper{width:200px;height:240px}
+  .photo-stat{top:-12px;right:-12px;padding:7px 10px}
+  .photo-badge{bottom:-12px;left:-12px;padding:8px 12px}
+
+  /* SECTIONS */
+  .section-wrap{padding:3rem 1.5rem}
+  .s-title{font-size:2rem}
+
+  /* ABOUT */
+  .about-grid{grid-template-columns:1fr;gap:2rem}
   .about-highlights{grid-template-columns:1fr 1fr}
+
+  /* SKILLS — 2 cols */
+  .skills-grid{grid-template-columns:1fr 1fr;gap:1rem}
+
+  /* PROJECTS — 1 col, featured un-span */
+  .projects-grid{grid-template-columns:1fr;gap:1rem}
+  .proj-card.featured{grid-column:span 1}
+  .proj-link--tr{top:1.2rem;right:1.2rem}
+
+  /* EDU / CONTACT */
+  .edu-grid{grid-template-columns:1fr;gap:2.5rem}
+  .contact-inner{grid-template-columns:1fr;gap:2.5rem}
+
+  /* HERO BTNS stack */
+  .hero-btns{flex-direction:column;align-items:center;gap:0.8rem}
+  .btn-p,.btn-s{width:100%;max-width:280px;justify-content:center;text-align:center}
+
   footer{padding:1.2rem 1.5rem;flex-direction:column;gap:0.5rem;text-align:center}
+}
+
+/* ── MOBILE ── */
+@media(max-width:480px){
+  /* NAV — hide text links, keep logo + CV + Hire */
+  .nav-links li:not(:last-child):not(:nth-last-child(2)){display:none}
+  nav{padding:0.9rem 1rem}
+
+  /* HERO */
+  #hero{padding:1rem;padding-top:75px;gap:1.5rem}
+  .hero-name{font-size:2.8rem}
+  .hero-stats{gap:1.5rem}
+  .h-stat-num{font-size:1.6rem}
+  .hero-desc{font-size:14px}
+
+  /* PHOTO */
+  .photo-wrapper{width:170px;height:200px}
+  .photo-stat{display:none}
+  .photo-badge{bottom:-10px;left:-10px;padding:7px 10px;font-size:9px}
+  .photo-badge-val{font-size:18px}
+
+  /* SECTION TITLES */
+  .section-wrap{padding:2.5rem 1rem}
+  .s-title{font-size:1.75rem}
+
+  /* ABOUT highlights — 2 cols still fine */
+  .hi-card{padding:1rem}
+  .hi-card-val{font-size:1.1rem}
+
+  /* SKILLS — 1 col on very small screens */
+  .skills-grid{grid-template-columns:1fr}
+  .skill-card{padding:1.2rem}
+
+  /* PROJECTS */
+  .proj-card{padding:1.3rem}
+  .proj-title{font-size:16px}
+
+  /* EDUCATION */
+  .cert-box{padding:1.3rem}
+
+  /* CONTACT */
+  .contact-left h2{font-size:1.8rem}
+  .btn-p,.btn-s,.btn-cv-contact{font-size:9px;padding:11px 18px}
+  .contact-val{font-size:13px}
+
+  footer{font-size:9px;padding:1rem}
 }
 
 /* CV BUTTONS */
