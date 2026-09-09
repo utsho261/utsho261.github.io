@@ -15,13 +15,12 @@ const containerVariants: Variants = {
 };
 
 const fadeUpVariants: Variants = {
-  hidden: { opacity: 0, y: 18, filter: 'blur(6px)' },
+  hidden: { opacity: 0.7, y: 8 },
   visible: {
     opacity: 1,
     y: 0,
-    filter: 'blur(0px)',
     transition: {
-      duration: 1.1,
+      duration: 0.45,
       ease: [0.16, 1, 0.3, 1],
     },
   },
