@@ -217,9 +217,9 @@ export const HeroSection: React.FC = () => {
             {/* Profiles Links */}
             <motion.div
               variants={fadeUpVariants}
-              className="flex flex-wrap items-center gap-4 sm:gap-5 pt-2 text-[11px] font-mono tracking-[0.2em] text-[#C5B8AB]"
+              className="flex flex-wrap items-center gap-4 sm:gap-5 pt-2 text-[11px] font-mono tracking-[0.2em] text-[var(--text-primary)]"
             >
-              <span className="text-[#A8988B] text-[10px] uppercase font-sans tracking-[0.25em] font-medium">PROFILES //</span>
+              <span className="text-[var(--border-highlight)] text-[10px] uppercase font-sans tracking-[0.25em] font-medium">PROFILES //</span>
               <a
                 href="https://www.linkedin.com/in/utshoroy261/"
                 target="_blank"
@@ -229,7 +229,7 @@ export const HeroSection: React.FC = () => {
                 <span>LINKEDIN</span>
                 <span className="text-[10px] text-[#D4AF37]">↗</span>
               </a>
-              <span aria-hidden="true" className="text-[#5C3E1B] font-bold">•</span>
+              <span aria-hidden="true" className="text-[var(--border-subtle)] font-bold">•</span>
               <a
                 href="https://github.com/utsho261"
                 target="_blank"
@@ -239,7 +239,7 @@ export const HeroSection: React.FC = () => {
                 <span>GITHUB</span>
                 <span className="text-[10px] text-[#D4AF37]">↗</span>
               </a>
-              <span aria-hidden="true" className="text-[#5C3E1B] font-bold">•</span>
+              <span aria-hidden="true" className="text-[var(--border-subtle)] font-bold">•</span>
               <a
                 href="https://codeforces.com/profile/UtshoRoy"
                 target="_blank"

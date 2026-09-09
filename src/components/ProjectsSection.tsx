@@ -306,6 +306,7 @@ export const ProjectsSection: React.FC = () => {
 
                 {/* Big Background Watermark Number */}
                 <span
+                  aria-hidden="true"
                   className="absolute -bottom-6 -right-3 text-8xl sm:text-9xl font-bold text-[var(--text-primary)]/5 select-none pointer-events-none leading-none"
                   style={{ fontFamily: "'Bebas Neue', sans-serif" }}
                 >

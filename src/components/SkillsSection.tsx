@@ -283,7 +283,7 @@ export const SkillsSection: React.FC = () => {
                 <span className="hover:text-[var(--text-heading)] transition-colors cursor-default whitespace-nowrap font-medium">
                   {tech}
                 </span>
-                <span className="text-[var(--border-subtle)]">•</span>
+                <span aria-hidden="true" className="text-[var(--border-subtle)] select-none">•</span>
               </div>
             ))}
           </motion.div>
