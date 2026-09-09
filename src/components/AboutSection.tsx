@@ -259,8 +259,12 @@ export const AboutSection: React.FC = () => {
                 {/* Portrait Photo */}
                 <motion.img
                   src={aboutImg}
-                  alt="Utsho Roy"
-                  className="w-full h-auto max-h-[460px] object-cover object-center filter grayscale contrast-[1.08] group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-700 ease-out"
+                  alt="Utsho Roy — Backend and Android Developer"
+                  width={1084}
+                  height={992}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-auto aspect-[1084/992] max-h-[460px] object-cover object-center filter grayscale contrast-[1.08] group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-700 ease-out"
                   style={{ transform: 'translateZ(20px)' }}
                 />
 

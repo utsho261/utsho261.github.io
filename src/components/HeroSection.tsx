@@ -37,7 +37,7 @@ const navItems = [
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative w-screen h-screen overflow-hidden bg-black text-[#e8dfd8] font-sans selection:bg-[#cbb59d] selection:text-black">
+    <section className="relative w-full min-h-[100dvh] h-screen overflow-hidden bg-black text-[#e8dfd8] font-sans selection:bg-[#cbb59d] selection:text-black">
 
       {/* ================= 2. FIXED VIDEO LAYER ================= */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none flex items-center justify-end bg-black">
@@ -50,6 +50,8 @@ export const HeroSection: React.FC = () => {
             muted
             loop
             playsInline
+            width={1080}
+            height={1920}
             className="h-full w-auto max-w-none object-contain origin-right scale-100 lg:scale-[1.06] opacity-95 transition-opacity -translate-x-0 lg:-translate-x-8 xl:-translate-x-10"
           >
             <source src="/videos/hero.mp4" type="video/mp4" />
@@ -140,7 +142,7 @@ export const HeroSection: React.FC = () => {
             </motion.div>
 
             {/* Massive Condensed Headline */}
-            <motion.div variants={fadeUpVariants} className="relative mb-2.5 select-none">
+            <motion.div variants={fadeUpVariants} className="relative mb-2.5 select-none min-h-[140px] sm:min-h-[160px] md:min-h-[190px] lg:min-h-[230px]">
               <h1
                 className="text-6xl sm:text-7xl md:text-8xl lg:text-[7.2rem] xl:text-[7.8rem] tracking-tight uppercase leading-[0.83]"
                 style={{ fontFamily: "'Bebas Neue', sans-serif" }}
@@ -168,7 +170,7 @@ export const HeroSection: React.FC = () => {
                 className="text-[10.5px] sm:text-[11.5px] md:text-xs font-semibold tracking-[0.28em] uppercase text-[#C5B8AB]"
                 style={{ fontFamily: "'Montserrat', sans-serif" }}
               >
-                PYTHON & DJANGO SPECIALIST <span className="text-[#D4AF37] mx-1 font-bold">•</span> NATIVE ANDROID (JAVA) <span className="text-[#D4AF37] mx-1 font-bold">•</span> REST APIS & CLOUD
+                PYTHON &amp; DJANGO SPECIALIST <span className="text-[#D4AF37] mx-1 font-bold">•</span> NATIVE ANDROID (JAVA) <span className="text-[#D4AF37] mx-1 font-bold">•</span> REST APIS &amp; CLOUD
               </p>
             </motion.div>
 
@@ -178,59 +180,46 @@ export const HeroSection: React.FC = () => {
               className="text-xs sm:text-sm md:text-[13.5px] font-normal text-[#C5B8AB] leading-[1.75] tracking-wide max-w-lg mb-4 space-y-1"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
-              <p>
-                I transform complex logic into scalable backend systems and high-performance Android applications.
-                <br />
-                Specializing in Python, Django REST Framework, and native Android apps with real-time Firebase integration.
-              </p>
+              <p>I transform complex logic into scalable backend systems and high-performance Android applications.</p>
+              <p>Specializing in Python, Django REST Framework, and native Android apps with real-time Firebase integration.</p>
             </motion.div>
 
-            {/* CTA Buttons */}
+            {/* Primary Action Buttons */}
             <motion.div
               variants={fadeUpVariants}
-              className="flex flex-row items-center gap-4 sm:gap-6 mb-3.5"
+              className="flex flex-wrap items-center gap-3 sm:gap-4 mb-4"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
               {/* Explore My Work CTA */}
-              <motion.a
+              <a
                 href="#work"
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="group relative inline-flex items-center space-x-3 px-6 sm:px-7 py-3 border border-[rgba(212,175,55,0.5)] bg-[#16120E]/90 hover:border-[#D4AF37] hover:bg-[#201912] text-white text-[11px] font-medium tracking-[0.24em] uppercase transition-all duration-300 shadow-[0_0_25px_rgba(212,175,55,0.2)] overflow-hidden cursor-pointer"
+                className="group relative inline-flex items-center space-x-2 px-6 sm:px-7 py-3 border border-[#D4AF37] bg-[#D4AF37] text-black hover:bg-[#F7E7C4] hover:border-[#F7E7C4] text-[11px] font-semibold tracking-[0.24em] uppercase transition-all duration-300 shadow-[0_0_20px_rgba(212,175,55,0.25)] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] cursor-pointer"
               >
-                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent pointer-events-none group-hover:via-[#F7E7C4] transition-all" />
                 <span>EXPLORE MY WORK</span>
-                <span className="transform transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 text-xs text-[#D4AF37]">
+                <span className="transform transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 text-xs text-black">
                   ↗
                 </span>
-              </motion.a>
+              </a>
 
-              {/* Download Resume Button */}
-              <motion.a
+              {/* Download Resume Link */}
+              <a
                 href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                download="Utsho_Roy_Resume.pdf"
                 className="group relative inline-flex items-center space-x-2 px-6 sm:px-7 py-3 border border-[rgba(140,109,79,0.5)] hover:border-[#D4AF37] hover:bg-black/80 text-[#C5B8AB] hover:text-white text-[11px] font-medium tracking-[0.24em] uppercase transition-all duration-300 bg-black/60 cursor-pointer"
               >
                 <span>DOWNLOAD RESUME</span>
                 <span className="transform transition-transform duration-300 group-hover:translate-y-1 text-xs text-[#D4AF37]">
                   ↓
                 </span>
-              </motion.a>
+              </a>
             </motion.div>
 
-            {/* Quick Profiles Link Bar */}
+            {/* Profiles Links */}
             <motion.div
               variants={fadeUpVariants}
-              className="flex flex-wrap items-center gap-4 sm:gap-5 pt-2 text-[11px] font-mono tracking-[0.2em] text-[#A8988B]"
+              className="flex flex-wrap items-center gap-4 sm:gap-5 pt-2 text-[11px] font-mono tracking-[0.2em] text-[#C5B8AB]"
             >
-              <span className="text-[#8C6D4F] text-[10px] uppercase font-sans tracking-[0.25em]">PROFILES //</span>
+              <span className="text-[#A8988B] text-[10px] uppercase font-sans tracking-[0.25em] font-medium">PROFILES //</span>
               <a
                 href="https://www.linkedin.com/in/utshoroy261/"
                 target="_blank"
@@ -240,7 +229,7 @@ export const HeroSection: React.FC = () => {
                 <span>LINKEDIN</span>
                 <span className="text-[10px] text-[#D4AF37]">↗</span>
               </a>
-              <span className="text-[#8C6D4F]/40">•</span>
+              <span aria-hidden="true" className="text-[#5C3E1B] font-bold">•</span>
               <a
                 href="https://github.com/utsho261"
                 target="_blank"
@@ -250,7 +239,7 @@ export const HeroSection: React.FC = () => {
                 <span>GITHUB</span>
                 <span className="text-[10px] text-[#D4AF37]">↗</span>
               </a>
-              <span className="text-[#8C6D4F]/40">•</span>
+              <span aria-hidden="true" className="text-[#5C3E1B] font-bold">•</span>
               <a
                 href="https://codeforces.com/profile/UtshoRoy"
                 target="_blank"

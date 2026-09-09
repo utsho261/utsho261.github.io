@@ -262,10 +262,11 @@ export const ContactSection: React.FC = () => {
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                   <div>
-                    <label className="block text-[10px] font-mono tracking-[0.2em] uppercase text-[var(--text-secondary)] mb-2 font-medium">
+                    <label htmlFor="sender-name" className="block text-[10px] font-mono tracking-[0.2em] uppercase text-[var(--text-secondary)] mb-2 font-medium">
                       NAME // SENDER
                     </label>
                     <input
+                      id="sender-name"
                       type="text"
                       required
                       value={formData.name}
@@ -277,10 +278,11 @@ export const ContactSection: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="block text-[10px] font-mono tracking-[0.2em] uppercase text-[var(--text-secondary)] mb-2 font-medium">
+                    <label htmlFor="sender-email" className="block text-[10px] font-mono tracking-[0.2em] uppercase text-[var(--text-secondary)] mb-2 font-medium">
                       EMAIL // RETURN ADDRESS
                     </label>
                     <input
+                      id="sender-email"
                       type="email"
                       required
                       value={formData.email}
@@ -293,10 +295,11 @@ export const ContactSection: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-[10px] font-mono tracking-[0.2em] uppercase text-[var(--text-secondary)] mb-2 font-medium">
+                  <label htmlFor="sender-message" className="block text-[10px] font-mono tracking-[0.2em] uppercase text-[var(--text-secondary)] mb-2 font-medium">
                     MESSAGE // PROJECT BRIEF
                   </label>
                   <textarea
+                    id="sender-message"
                     required
                     rows={4}
                     value={formData.message}

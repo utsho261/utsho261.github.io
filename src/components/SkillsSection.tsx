@@ -252,7 +252,7 @@ export const SkillsSection: React.FC = () => {
   return (
     <section
       id="skills"
-      className="relative w-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans selection:bg-[#cbb59d] selection:text-black pt-12 pb-24 px-6 sm:px-12 lg:px-20 overflow-hidden flex flex-col justify-center theme-transition"
+      className="relative w-full bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans selection:bg-[#cbb59d] selection:text-black pt-12 pb-24 px-6 sm:px-12 lg:px-20 overflow-hidden flex flex-col justify-center theme-transition"
     >
       {/* Background Ambient Glows */}
       <div className="absolute top-1/4 left-1/5 w-[36rem] h-[36rem] bg-[var(--glow-color)] rounded-full blur-[180px] pointer-events-none opacity-80" />

@@ -111,11 +111,13 @@ function PortfolioContent() {
   return (
     <div className={`w-full min-h-screen ${theme} theme-transition font-sans selection:bg-[#cbb59d] selection:text-black`}>
       <StickyNav />
-      <HeroSection />
-      <AboutSection />
-      <ProjectsSection />
-      <SkillsSection />
-      <ExperienceSection />
+      <main id="main-content" role="main" className="w-full">
+        <HeroSection />
+        <AboutSection />
+        <ProjectsSection />
+        <SkillsSection />
+        <ExperienceSection />
+      </main>
       <ContactSection />
       <FloatingControls />
     </div>
