@@ -38,10 +38,10 @@ export const HeroSection: React.FC = () => {
   return (
     <section className="relative w-full min-h-[100dvh] h-screen overflow-hidden bg-black text-[#e8dfd8] font-sans selection:bg-[#cbb59d] selection:text-black">
 
-      {/* ================= 2. FIXED VIDEO LAYER ================= */}
-      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none flex items-center justify-end bg-black">
+      {/* ================= 2. SCOPED VIDEO LAYER ================= */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none flex items-center justify-end bg-black">
         {/* Ambient Warm Golden Spotlight behind character */}
-        <div className="absolute top-1/3 right-[15%] w-[32rem] h-[32rem] bg-[#d4af37]/[0.06] rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/3 right-[15%] w-72 h-72 sm:w-[32rem] sm:h-[32rem] bg-[#d4af37]/[0.06] rounded-full blur-2xl sm:blur-3xl pointer-events-none" />
 
         <div className="relative h-full flex items-center justify-end">
           <video
@@ -49,16 +49,20 @@ export const HeroSection: React.FC = () => {
             muted
             loop
             playsInline
+            preload="metadata"
             width={1080}
             height={1920}
-            className="h-full w-auto max-w-none object-contain origin-right scale-100 lg:scale-[1.06] opacity-95 transition-opacity -translate-x-0 lg:-translate-x-8 xl:-translate-x-10"
+            className="h-full w-auto max-w-none object-contain origin-right scale-100 lg:scale-[1.06] opacity-65 sm:opacity-95 transition-opacity -translate-x-0 lg:-translate-x-8 xl:-translate-x-10"
           >
             <source src="/videos/hero.mp4" type="video/mp4" />
           </video>
         </div>
 
         {/* Dynamic Soft Left Edge Blend - smooth gradient so text on left stays crisp while video breathes */}
-        <div className="absolute inset-y-0 left-0 w-full sm:w-2/3 md:w-1/2 lg:w-[48%] bg-gradient-to-r from-black via-black/85 to-transparent pointer-events-none z-[1]" />
+        <div className="absolute inset-y-0 left-0 w-full sm:w-2/3 md:w-1/2 lg:w-[48%] bg-gradient-to-r from-black via-black/90 to-transparent pointer-events-none z-[1]" />
+
+        {/* Mobile Full Screen Subtle Tint so headline text is ultra readable */}
+        <div className="absolute inset-0 bg-black/45 sm:bg-transparent pointer-events-none z-[1]" />
 
         {/* Subtle Top & Bottom Vignettes for seamless blending */}
         <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/80 via-black/30 to-transparent pointer-events-none z-[1]" />
@@ -67,14 +71,12 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* ================= 4. CONTENT LAYER ================= */}
-      <div className="relative z-10 flex flex-col justify-between h-full w-full px-6 sm:px-12 lg:px-16 pt-6 pb-8 pointer-events-none">
+      <div className="relative z-10 flex flex-col justify-between min-h-[100dvh] h-full w-full px-5 sm:px-12 lg:px-16 pt-5 sm:pt-6 pb-6 sm:pb-8 pointer-events-none">
 
         {/* Navigation Bar */}
         <header className="relative flex items-center justify-between w-full pointer-events-auto">
           <a
             href="#"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
             className="text-xs sm:text-sm font-semibold tracking-[0.35em] uppercase text-white hover:opacity-75 transition-opacity"
             style={{ fontFamily: "'Montserrat', sans-serif" }}
           >
@@ -90,8 +92,6 @@ export const HeroSection: React.FC = () => {
               <a
                 key={item.name}
                 href={item.href}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
                 className="relative group py-1 transition-colors duration-300 hover:text-white"
               >
                 {item.name}
@@ -101,14 +101,12 @@ export const HeroSection: React.FC = () => {
           </nav>
 
           {/* Right Action: Theme Toggle & Contact Button */}
-          <div className="flex items-center space-x-3 ml-auto md:ml-0">
+          <div className="flex items-center space-x-2 sm:space-x-3 ml-auto md:ml-0">
             <ThemeToggle />
 
             <a
               href="#contact"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-              className="group flex items-center space-x-2 text-[11px] tracking-[0.24em] font-medium uppercase py-2 px-4 border border-[rgba(212,175,55,0.4)] hover:border-[#D4AF37] text-white transition-all duration-300 backdrop-blur-sm bg-black/60"
+              className="group flex items-center space-x-1.5 sm:space-x-2 text-[10px] sm:text-[11px] tracking-[0.2em] sm:tracking-[0.24em] font-medium uppercase py-1.5 sm:py-2 px-3 sm:px-4 border border-[rgba(212,175,55,0.4)] hover:border-[#D4AF37] text-white transition-all duration-300 backdrop-blur-sm bg-black/60"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
               <span>LET&apos;S TALK</span>
@@ -127,33 +125,33 @@ export const HeroSection: React.FC = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="max-w-sm sm:max-w-md md:max-w-lg lg:max-w-[37rem] xl:max-w-[40rem] pointer-events-auto z-20"
+            className="max-w-sm sm:max-w-md md:max-w-lg lg:max-w-[37rem] xl:max-w-[40rem] pointer-events-auto z-20 w-full"
           >
             {/* Live Availability Status Pill */}
-            <motion.div variants={fadeUpVariants} className="mb-2.5 inline-flex items-center space-x-2.5 px-3.5 py-1 rounded-full border border-[rgba(212,175,55,0.35)] bg-black/75 backdrop-blur-md">
-              <span className="relative flex h-2 w-2">
+            <motion.div variants={fadeUpVariants} className="mb-2.5 inline-flex items-center space-x-2 px-2.5 sm:px-3.5 py-1 rounded-full border border-[rgba(212,175,55,0.35)] bg-black/75 backdrop-blur-md max-w-full">
+              <span className="relative flex h-2 w-2 shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              <span className="text-[10px] font-mono tracking-widest uppercase text-[#D4AF37] font-medium">
-                AVAILABLE FOR HIRE // BACKEND & ANDROID DEVELOPER
+              <span className="text-[8.5px] xs:text-[9.5px] sm:text-[10px] font-mono tracking-wider sm:tracking-widest uppercase text-[#D4AF37] font-medium truncate">
+                AVAILABLE FOR HIRE // BACKEND &amp; ANDROID
               </span>
             </motion.div>
 
             {/* Massive Condensed Headline */}
-            <motion.div variants={fadeUpVariants} className="relative mb-2.5 select-none min-h-[140px] sm:min-h-[160px] md:min-h-[190px] lg:min-h-[230px]">
+            <motion.div variants={fadeUpVariants} className="relative mb-2.5 select-none min-h-auto sm:min-h-[160px] md:min-h-[190px] lg:min-h-[230px]">
               <h1
-                className="text-6xl sm:text-7xl md:text-8xl lg:text-[7.2rem] xl:text-[7.8rem] tracking-tight uppercase leading-[0.83]"
+                className="text-[3.2rem] xs:text-6xl sm:text-7xl md:text-8xl lg:text-[7.2rem] xl:text-[7.8rem] tracking-tight uppercase leading-[0.88] sm:leading-[0.83]"
                 style={{ fontFamily: "'Bebas Neue', sans-serif" }}
               >
-                {/* Line 1: I BUILD */}
+                {/* Line 1: I CRAFT */}
                 <span className="block text-transparent bg-clip-text bg-gradient-to-b from-[#FFFFFF] via-[#E2D9D0] to-[#9C7F62] drop-shadow-[0_4px_25px_rgba(0,0,0,0.9)]">
                   I CRAFT
                 </span>
 
                 {/* Line 2: BACKEND & */}
                 <span className="block text-transparent bg-clip-text bg-gradient-to-b from-[#F7E7C4] via-[#D4AF37] to-[#8C6D4F] drop-shadow-[0_4px_25px_rgba(0,0,0,0.9)]">
-                  BACKEND &
+                  BACKEND &amp;
                 </span>
 
                 {/* Line 3: ANDROID APPS */}
@@ -166,10 +164,10 @@ export const HeroSection: React.FC = () => {
             {/* Subtitle Technologies */}
             <motion.div variants={fadeUpVariants} className="mb-2.5">
               <p
-                className="text-[10.5px] sm:text-[11.5px] md:text-xs font-semibold tracking-[0.28em] uppercase text-[#C5B8AB]"
+                className="text-[9.5px] sm:text-[11.5px] md:text-xs font-semibold tracking-[0.2em] sm:tracking-[0.28em] uppercase text-[#C5B8AB]"
                 style={{ fontFamily: "'Montserrat', sans-serif" }}
               >
-                PYTHON &amp; DJANGO SPECIALIST <span className="text-[#D4AF37] mx-1 font-bold">•</span> NATIVE ANDROID (JAVA) <span className="text-[#D4AF37] mx-1 font-bold">•</span> REST APIS &amp; CLOUD
+                PYTHON &amp; DJANGO SPECIALIST <span className="text-[#D4AF37] mx-1 font-bold">•</span> NATIVE ANDROID <span className="text-[#D4AF37] mx-1 font-bold">•</span> REST APIS &amp; CLOUD
               </p>
             </motion.div>
 
@@ -186,13 +184,13 @@ export const HeroSection: React.FC = () => {
             {/* Primary Action Buttons */}
             <motion.div
               variants={fadeUpVariants}
-              className="flex flex-wrap items-center gap-3 sm:gap-4 mb-4"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-4"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
               {/* Explore My Work CTA */}
               <a
                 href="#work"
-                className="group relative inline-flex items-center space-x-2 px-6 sm:px-7 py-3 border border-[#D4AF37] bg-[#D4AF37] text-black hover:bg-[#F7E7C4] hover:border-[#F7E7C4] text-[11px] font-semibold tracking-[0.24em] uppercase transition-all duration-300 shadow-[0_0_20px_rgba(212,175,55,0.25)] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] cursor-pointer"
+                className="group relative inline-flex items-center justify-center space-x-2 px-6 sm:px-7 py-3 border border-[#D4AF37] bg-[#D4AF37] text-black hover:bg-[#F7E7C4] hover:border-[#F7E7C4] text-[11px] font-semibold tracking-[0.24em] uppercase transition-all duration-300 shadow-[0_0_20px_rgba(212,175,55,0.25)] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] cursor-pointer text-center"
               >
                 <span>EXPLORE MY WORK</span>
                 <span className="transform transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 text-xs text-black">
@@ -204,7 +202,7 @@ export const HeroSection: React.FC = () => {
               <a
                 href="/resume.pdf"
                 download="Utsho_Roy_Resume.pdf"
-                className="group relative inline-flex items-center space-x-2 px-6 sm:px-7 py-3 border border-[rgba(140,109,79,0.5)] hover:border-[#D4AF37] hover:bg-black/80 text-[#C5B8AB] hover:text-white text-[11px] font-medium tracking-[0.24em] uppercase transition-all duration-300 bg-black/60 cursor-pointer"
+                className="group relative inline-flex items-center justify-center space-x-2 px-6 sm:px-7 py-3 border border-[rgba(140,109,79,0.5)] hover:border-[#D4AF37] hover:bg-black/80 text-[#C5B8AB] hover:text-white text-[11px] font-medium tracking-[0.24em] uppercase transition-all duration-300 bg-black/60 cursor-pointer text-center"
               >
                 <span>DOWNLOAD RESUME</span>
                 <span className="transform transition-transform duration-300 group-hover:translate-y-1 text-xs text-[#D4AF37]">
@@ -216,9 +214,9 @@ export const HeroSection: React.FC = () => {
             {/* Profiles Links */}
             <motion.div
               variants={fadeUpVariants}
-              className="flex flex-wrap items-center gap-4 sm:gap-5 pt-2 text-[11px] font-mono tracking-[0.2em] text-[var(--text-primary)]"
+              className="flex flex-wrap items-center gap-3 sm:gap-5 pt-2 text-[10.5px] sm:text-[11px] font-mono tracking-[0.16em] sm:tracking-[0.2em] text-[var(--text-primary)]"
             >
-              <span className="text-[var(--border-highlight)] text-[10px] uppercase font-sans tracking-[0.25em] font-medium">PROFILES //</span>
+              <span className="text-[var(--border-highlight)] text-[9.5px] sm:text-[10px] uppercase font-sans tracking-[0.2em] sm:tracking-[0.25em] font-medium">PROFILES //</span>
               <a
                 href="https://www.linkedin.com/in/utshoroy261/"
                 target="_blank"

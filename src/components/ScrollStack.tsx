@@ -30,6 +30,11 @@ export interface ScrollStackProps {
   onStackComplete?: () => void;
 }
 
+const isMobileDevice = () => {
+  if (typeof window === 'undefined') return false;
+  return window.innerWidth < 768 || window.matchMedia('(pointer: coarse)').matches;
+};
+
 const ScrollStack: React.FC<ScrollStackProps> = ({
   children,
   className = '',
@@ -50,8 +55,10 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   const lenisRef = useRef<Lenis | null>(null);
   const cardsRef = useRef<HTMLElement[]>([]);
   const initialTopsRef = useRef<number[]>([]);
+  const endElementTopRef = useRef<number>(0);
   const lastTransformsRef = useRef(new Map());
   const isUpdatingRef = useRef(false);
+  const isMobileRef = useRef(false);
 
   const calculateProgress = useCallback((scrollTop: number, start: number, end: number) => {
     if (scrollTop < start) return 0;
@@ -82,21 +89,14 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   }, [useWindowScroll]);
 
   const updateCardTransforms = useCallback(() => {
-    if (!cardsRef.current.length || isUpdatingRef.current) return;
+    if (isMobileRef.current || !cardsRef.current.length || isUpdatingRef.current) return;
 
     isUpdatingRef.current = true;
 
     const { scrollTop, containerHeight } = getScrollData();
     const stackPositionPx = parsePercentage(stackPosition, containerHeight);
     const scaleEndPositionPx = parsePercentage(scaleEndPosition, containerHeight);
-
-    const endElement = useWindowScroll
-      ? (document.querySelector('.scroll-stack-end') as HTMLElement)
-      : (scrollerRef.current?.querySelector('.scroll-stack-end') as HTMLElement);
-
-    const endElementTop = endElement
-      ? endElement.getBoundingClientRect().top + window.scrollY
-      : 0;
+    const endElementTop = endElementTopRef.current;
 
     cardsRef.current.forEach((card, i) => {
       if (!card) return;
@@ -183,7 +183,6 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     baseScale,
     rotationAmount,
     blurAmount,
-    useWindowScroll,
     onStackComplete,
     calculateProgress,
     parsePercentage,
@@ -195,12 +194,17 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   }, [updateCardTransforms]);
 
   const setupLenis = useCallback(() => {
+    // Only setup Lenis on desktop pointer devices
+    if (isMobileDevice()) {
+      return null;
+    }
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
       wheelMultiplier: 1,
-      touchMultiplier: 2,
+      syncTouch: false,
       infinite: false,
     });
 
@@ -217,17 +221,40 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   }, [handleScroll]);
 
   useLayoutEffect(() => {
+    const mobile = isMobileDevice();
+    isMobileRef.current = mobile;
+
     const cards = Array.from(
       document.querySelectorAll('.scroll-stack-card')
     ) as HTMLElement[];
 
     cardsRef.current = cards;
 
-    // Record static natural top positions before any transforms are applied
+    // Reset card transforms completely on mobile
+    if (mobile) {
+      cards.forEach((card) => {
+        card.style.transform = '';
+        card.style.filter = '';
+        card.style.willChange = '';
+        card.style.marginBottom = '';
+        card.style.zIndex = '';
+      });
+      return;
+    }
+
+    // Pre-cache measurements only on desktop
     initialTopsRef.current = cards.map((card) => {
       const rect = card.getBoundingClientRect();
       return rect.top + window.scrollY;
     });
+
+    const endElement = useWindowScroll
+      ? (document.querySelector('.scroll-stack-end') as HTMLElement)
+      : (scrollerRef.current?.querySelector('.scroll-stack-end') as HTMLElement);
+
+    if (endElement) {
+      endElementTopRef.current = endElement.getBoundingClientRect().top + window.scrollY;
+    }
 
     cards.forEach((card, i) => {
       card.style.zIndex = `${i + 1}`;
@@ -244,7 +271,36 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     setupLenis();
     updateCardTransforms();
 
+    const handleResize = () => {
+      const isNowMobile = isMobileDevice();
+      isMobileRef.current = isNowMobile;
+      if (!isNowMobile) {
+        initialTopsRef.current = cards.map((card) => {
+          const rect = card.getBoundingClientRect();
+          return rect.top + window.scrollY;
+        });
+        const el = useWindowScroll
+          ? (document.querySelector('.scroll-stack-end') as HTMLElement)
+          : (scrollerRef.current?.querySelector('.scroll-stack-end') as HTMLElement);
+        if (el) {
+          endElementTopRef.current = el.getBoundingClientRect().top + window.scrollY;
+        }
+        updateCardTransforms();
+      } else {
+        cards.forEach((card) => {
+          card.style.transform = '';
+          card.style.filter = '';
+          card.style.willChange = '';
+          card.style.marginBottom = '';
+        });
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    const lastTransforms = lastTransformsRef.current;
+
     return () => {
+      window.removeEventListener('resize', handleResize);
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
@@ -254,7 +310,7 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
       stackCompletedRef.current = false;
       cardsRef.current = [];
       initialTopsRef.current = [];
-      lastTransformsRef.current.clear();
+      lastTransforms.clear();
       isUpdatingRef.current = false;
     };
   }, [

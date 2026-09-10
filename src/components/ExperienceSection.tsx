@@ -60,10 +60,10 @@ export const ExperienceSection: React.FC = () => {
     <section
       id="experience"
       ref={containerRef}
-      className="relative w-full bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans selection:bg-[#cbb59d] selection:text-black pt-4 pb-24 px-6 sm:px-12 lg:px-20 overflow-hidden theme-transition"
+      className="relative w-full bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans selection:bg-[#cbb59d] selection:text-black pt-4 pb-20 sm:pb-24 px-5 sm:px-12 lg:px-20 overflow-hidden theme-transition"
     >
       {/* Subtle Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-[var(--glow-color)] rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 sm:w-[40rem] sm:h-[40rem] bg-[var(--glow-color)] rounded-full blur-3xl sm:blur-[150px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto w-full relative z-10">
         

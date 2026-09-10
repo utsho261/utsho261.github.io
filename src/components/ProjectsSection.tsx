@@ -228,11 +228,11 @@ export const ProjectsSection: React.FC = () => {
   return (
     <section
       id="work"
-      className="relative w-full bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans selection:bg-[#cbb59d] selection:text-black pt-20 pb-32 px-6 sm:px-12 lg:px-20 theme-transition"
+      className="relative w-full bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans selection:bg-[#cbb59d] selection:text-black pt-14 sm:pt-20 pb-20 sm:pb-32 px-5 sm:px-12 lg:px-20 theme-transition"
     >
       {/* Studio Ambient Glows */}
-      <div className="absolute top-1/4 left-1/3 w-[36rem] h-[36rem] bg-[var(--glow-color)] rounded-full blur-[180px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-[var(--glow-color)] rounded-full blur-[170px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/3 w-72 h-72 sm:w-[36rem] sm:h-[36rem] bg-[var(--glow-color)] rounded-full blur-3xl sm:blur-[180px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-[30rem] sm:h-[30rem] bg-[var(--glow-color)] rounded-full blur-2xl sm:blur-[170px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
         
@@ -259,7 +259,7 @@ export const ProjectsSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col md:flex-row md:items-end justify-between mb-16"
+          className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16"
         >
           <h2
             className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight uppercase leading-[0.85] select-none"
@@ -293,7 +293,7 @@ export const ProjectsSection: React.FC = () => {
         >
           {flagshipProjects.map((project) => (
             <ScrollStackItem key={project.title}>
-              <div className="relative w-full rounded-2xl border border-[var(--border-medium)] bg-[var(--bg-surface)] p-8 sm:p-12 shadow-[var(--card-shadow)] group overflow-hidden transition-colors duration-500 hover:border-[var(--border-highlight)] backdrop-blur-md">
+              <div className="relative w-full rounded-2xl border border-[var(--border-medium)] bg-[var(--bg-surface)] p-5 sm:p-8 md:p-12 shadow-[var(--card-shadow)] group overflow-hidden transition-colors duration-500 hover:border-[var(--border-highlight)] backdrop-blur-md">
                 
                 {/* Top Gold Border Light Flare */}
                 <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--border-highlight)]/80 to-transparent" />

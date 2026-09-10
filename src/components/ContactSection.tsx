@@ -37,6 +37,7 @@ export const ContactSection: React.FC = () => {
         setSent(true);
       }
     } catch (error) {
+      console.warn('Network transmission fallback:', error);
       // Fallback to direct mailto if offline or network failure
       window.open(
         `mailto:utshoroy5@gmail.com?subject=${encodeURIComponent(
@@ -55,7 +56,7 @@ export const ContactSection: React.FC = () => {
   return (
     <footer
       id="contact"
-      className="relative w-full bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans selection:bg-[#cbb59d] selection:text-black pt-16 pb-16 px-6 sm:px-12 lg:px-20 overflow-hidden theme-transition"
+      className="relative w-full bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans selection:bg-[#cbb59d] selection:text-black pt-12 sm:pt-16 pb-12 sm:pb-16 px-5 sm:px-12 lg:px-20 overflow-hidden theme-transition"
     >
       <div className="max-w-7xl mx-auto w-full relative z-10">
         
@@ -272,7 +273,7 @@ export const ContactSection: React.FC = () => {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Your full name or organization"
-                      className="w-full bg-[var(--bg-secondary)] border border-[var(--border-subtle)] focus:border-[var(--border-highlight)] focus:ring-1 focus:ring-[var(--border-highlight)]/40 focus:bg-[var(--bg-surface-elevated)] text-xs text-[var(--text-heading)] placeholder-[var(--text-muted)] px-4 py-3.5 outline-none rounded-sm transition-all"
+                      className="w-full bg-[var(--bg-secondary)] border border-[var(--border-subtle)] focus:border-[var(--border-highlight)] focus:ring-1 focus:ring-[var(--border-highlight)]/40 focus:bg-[var(--bg-surface-elevated)] text-base sm:text-xs text-[var(--text-heading)] placeholder-[var(--text-muted)] px-4 py-3.5 outline-none rounded-sm transition-all"
                       style={{ fontFamily: "'Montserrat', sans-serif" }}
                     />
                   </div>
@@ -288,7 +289,7 @@ export const ContactSection: React.FC = () => {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="your.email@example.com"
-                      className="w-full bg-[var(--bg-secondary)] border border-[var(--border-subtle)] focus:border-[var(--border-highlight)] focus:ring-1 focus:ring-[var(--border-highlight)]/40 focus:bg-[var(--bg-surface-elevated)] text-xs text-[var(--text-heading)] placeholder-[var(--text-muted)] px-4 py-3.5 outline-none rounded-sm transition-all"
+                      className="w-full bg-[var(--bg-secondary)] border border-[var(--border-subtle)] focus:border-[var(--border-highlight)] focus:ring-1 focus:ring-[var(--border-highlight)]/40 focus:bg-[var(--bg-surface-elevated)] text-base sm:text-xs text-[var(--text-heading)] placeholder-[var(--text-muted)] px-4 py-3.5 outline-none rounded-sm transition-all"
                       style={{ fontFamily: "'Montserrat', sans-serif" }}
                     />
                   </div>
@@ -305,7 +306,7 @@ export const ContactSection: React.FC = () => {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Describe your project, architectural needs, timeline, or engineering opportunity..."
-                    className="w-full bg-[var(--bg-secondary)] border border-[var(--border-subtle)] focus:border-[var(--border-highlight)] focus:ring-1 focus:ring-[var(--border-highlight)]/40 focus:bg-[var(--bg-surface-elevated)] text-xs text-[var(--text-heading)] placeholder-[var(--text-muted)] p-4 outline-none rounded-sm transition-all resize-none leading-relaxed"
+                    className="w-full bg-[var(--bg-secondary)] border border-[var(--border-subtle)] focus:border-[var(--border-highlight)] focus:ring-1 focus:ring-[var(--border-highlight)]/40 focus:bg-[var(--bg-surface-elevated)] text-base sm:text-xs text-[var(--text-heading)] placeholder-[var(--text-muted)] p-4 outline-none rounded-sm transition-all resize-none leading-relaxed"
                     style={{ fontFamily: "'Montserrat', sans-serif" }}
                   />
                 </div>

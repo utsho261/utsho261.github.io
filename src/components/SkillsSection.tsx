@@ -229,13 +229,12 @@ const containerVariants: Variants = {
 };
 
 const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 25, filter: 'blur(6px)' },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    filter: 'blur(0px)',
     transition: {
-      duration: 0.7,
+      duration: 0.5,
       ease: [0.16, 1, 0.3, 1],
     },
   },
@@ -252,17 +251,17 @@ export const SkillsSection: React.FC = () => {
   return (
     <section
       id="skills"
-      className="relative w-full bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans selection:bg-[#cbb59d] selection:text-black pt-12 pb-24 px-6 sm:px-12 lg:px-20 overflow-hidden flex flex-col justify-center theme-transition"
+      className="relative w-full bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans selection:bg-[#cbb59d] selection:text-black pt-10 sm:pt-12 pb-16 sm:pb-24 px-5 sm:px-12 lg:px-20 overflow-hidden flex flex-col justify-center theme-transition"
     >
       {/* Background Ambient Glows */}
-      <div className="absolute top-1/4 left-1/5 w-[36rem] h-[36rem] bg-[var(--glow-color)] rounded-full blur-[180px] pointer-events-none opacity-80" />
-      <div className="absolute bottom-16 right-1/5 w-[32rem] h-[32rem] bg-[var(--glow-color)] rounded-full blur-[170px] pointer-events-none opacity-70" />
+      <div className="absolute top-1/4 left-1/5 w-72 h-72 sm:w-[36rem] sm:h-[36rem] bg-[var(--glow-color)] rounded-full blur-3xl sm:blur-[180px] pointer-events-none opacity-80" />
+      <div className="absolute bottom-16 right-1/5 w-64 h-64 sm:w-[32rem] sm:h-[32rem] bg-[var(--glow-color)] rounded-full blur-2xl sm:blur-[170px] pointer-events-none opacity-70" />
 
       {/* Modern Ticker Ribbon */}
-      <div className="max-w-7xl mx-auto w-full mb-12 relative z-10 overflow-hidden border-y border-[var(--border-subtle)] py-3.5 bg-[var(--bg-surface)]/60 backdrop-blur-md">
+      <div className="max-w-7xl mx-auto w-full mb-10 sm:mb-12 relative z-10 overflow-hidden border-y border-[var(--border-subtle)] py-3.5 bg-[var(--bg-surface)]/60 backdrop-blur-md">
         {/* Soft edge fades for seamless ticker */}
-        <div className="absolute left-0 inset-y-0 w-16 sm:w-24 bg-gradient-to-r from-[var(--bg-primary)] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 inset-y-0 w-16 sm:w-24 bg-gradient-to-l from-[var(--bg-primary)] to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 inset-y-0 w-12 sm:w-24 bg-gradient-to-r from-[var(--bg-primary)] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 inset-y-0 w-12 sm:w-24 bg-gradient-to-l from-[var(--bg-primary)] to-transparent z-10 pointer-events-none" />
         
         <div className="flex w-max">
           <motion.div
@@ -337,13 +336,13 @@ export const SkillsSection: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Intuitive Filter Tabs */}
+        {/* Intuitive Filter Tabs with Mobile Horizontal Swipe */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="flex flex-wrap items-center gap-2 sm:gap-3 mb-10 pb-2 border-b border-[var(--border-subtle)]"
+          className="flex items-center gap-2 sm:gap-3 mb-8 pb-3 border-b border-[var(--border-subtle)] overflow-x-auto no-scrollbar -mx-5 px-5 sm:mx-0 sm:px-0 sm:flex-wrap"
         >
           {filterButtons.map((btn) => {
             const isActive = activeFilter === btn.key;
@@ -351,7 +350,7 @@ export const SkillsSection: React.FC = () => {
               <button
                 key={btn.key}
                 onClick={() => setActiveFilter(btn.key)}
-                className={`relative px-4 py-2 text-[11px] font-medium tracking-[0.16em] uppercase rounded-sm transition-all duration-300 cursor-pointer ${
+                className={`shrink-0 whitespace-nowrap relative px-3.5 sm:px-4 py-1.5 sm:py-2 text-[10.5px] sm:text-[11px] font-medium tracking-[0.14em] sm:tracking-[0.16em] uppercase rounded-sm transition-all duration-300 cursor-pointer ${
                   isActive
                     ? 'text-[var(--text-heading)] bg-[var(--bg-surface-elevated)] border border-[var(--border-highlight)] shadow-[0_0_15px_rgba(212,175,55,0.18)]'
                     : 'text-[var(--text-secondary)] border border-transparent hover:border-[var(--border-subtle)] hover:text-[var(--text-primary)]'
@@ -379,7 +378,7 @@ export const SkillsSection: React.FC = () => {
             initial="hidden"
             animate="visible"
             exit="hidden"
-            className="grid grid-cols-1 lg:grid-cols-12 gap-6"
+            className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6"
           >
             {displayedDomains.map((block) => (
               <motion.div
@@ -388,7 +387,7 @@ export const SkillsSection: React.FC = () => {
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
                 className={`${
                   activeFilter === 'all' ? block.colSpan : 'lg:col-span-12'
-                } relative p-7 sm:p-8 rounded-sm border border-[var(--border-medium)] bg-[var(--bg-surface)] backdrop-blur-xl overflow-hidden transition-all duration-500 shadow-[var(--card-shadow)] hover:border-[var(--border-highlight)] hover:bg-[var(--bg-surface-elevated)] group flex flex-col justify-between`}
+                } relative p-5 sm:p-7 md:p-8 rounded-sm border border-[var(--border-medium)] bg-[var(--bg-surface)] backdrop-blur-xl overflow-hidden transition-all duration-500 shadow-[var(--card-shadow)] hover:border-[var(--border-highlight)] hover:bg-[var(--bg-surface-elevated)] group flex flex-col justify-between`}
               >
                 {/* Top Ambient Highlight */}
                 <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-[var(--border-highlight)]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

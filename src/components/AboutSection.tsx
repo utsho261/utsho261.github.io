@@ -15,13 +15,12 @@ const containerVariants: Variants = {
 };
 
 const fadeUpVariants: Variants = {
-  hidden: { opacity: 0, y: 30, filter: 'blur(10px)' },
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
-    filter: 'blur(0px)',
     transition: {
-      duration: 1.2,
+      duration: 0.65,
       ease: [0.16, 1, 0.3, 1],
     },
   },
@@ -48,7 +47,7 @@ export const AboutSection: React.FC = () => {
   );
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
+    if (!cardRef.current || (typeof window !== 'undefined' && !window.matchMedia('(pointer: fine)').matches)) return;
     const rect = cardRef.current.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
@@ -58,7 +57,12 @@ export const AboutSection: React.FC = () => {
     spotlightY.set(e.clientY - rect.top);
   };
 
-  const handleMouseEnter = () => setIsCardHovered(true);
+  const handleMouseEnter = () => {
+    if (typeof window !== 'undefined' && window.matchMedia('(pointer: fine)').matches) {
+      setIsCardHovered(true);
+    }
+  };
+
   const handleMouseLeave = () => {
     setIsCardHovered(false);
     mouseX.set(0);
@@ -68,11 +72,11 @@ export const AboutSection: React.FC = () => {
   return (
     <section
       id="about"
-      className="relative w-full bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans selection:bg-[#cbb59d] selection:text-black pt-16 pb-28 px-6 sm:px-12 lg:px-20 overflow-hidden theme-transition"
+      className="relative w-full bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans selection:bg-[#cbb59d] selection:text-black pt-12 sm:pt-16 pb-20 sm:pb-28 px-5 sm:px-12 lg:px-20 overflow-hidden theme-transition"
     >
       {/* Dynamic Ambient Background Glows */}
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[35rem] h-[35rem] bg-[var(--glow-color)] rounded-full blur-[180px] pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-[28rem] h-[28rem] bg-[var(--glow-color)] rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-72 h-72 sm:w-[35rem] sm:h-[35rem] bg-[var(--glow-color)] rounded-full blur-3xl sm:blur-[180px] pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-64 h-64 sm:w-[28rem] sm:h-[28rem] bg-[var(--glow-color)] rounded-full blur-2xl sm:blur-[160px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
         
