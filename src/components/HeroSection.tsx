@@ -51,7 +51,7 @@ export const HeroSection: React.FC = () => {
       {/* ================= 2. SCOPED VIDEO LAYER ================= */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none flex items-center justify-end bg-black">
         {/* Ambient Warm Golden Spotlight behind character */}
-        <div className="absolute top-1/3 right-[15%] w-72 h-72 sm:w-[32rem] sm:h-[32rem] bg-[#d4af37]/[0.06] rounded-full blur-2xl sm:blur-3xl pointer-events-none" />
+        <div className="absolute top-1/4 right-0 sm:right-[15%] w-72 h-72 sm:w-[32rem] sm:h-[32rem] bg-[#d4af37]/[0.12] rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative h-full flex items-center justify-end">
           <video
@@ -62,21 +62,18 @@ export const HeroSection: React.FC = () => {
             preload="none"
             width={1080}
             height={1920}
-            className="h-full w-auto max-w-none object-contain origin-right scale-100 lg:scale-[1.06] opacity-65 sm:opacity-95 transition-opacity -translate-x-0 lg:-translate-x-8 xl:-translate-x-10"
+            className="h-full w-auto max-w-none object-contain origin-right scale-100 lg:scale-[1.06] opacity-95 transition-opacity translate-x-[20%] sm:translate-x-0 lg:-translate-x-8 xl:-translate-x-10"
           >
             {canLoadVideo && <source src="/videos/hero.mp4" type="video/mp4" />}
           </video>
         </div>
 
-        {/* Dynamic Soft Left Edge Blend - smooth gradient so text on left stays crisp while video breathes */}
-        <div className="absolute inset-y-0 left-0 w-full sm:w-2/3 md:w-1/2 lg:w-[48%] bg-gradient-to-r from-black via-black/90 to-transparent pointer-events-none z-[1]" />
+        {/* Dynamic Soft Left Edge Blend - smooth gradient so text on left stays crisp while face on right stays completely clear */}
+        <div className="absolute inset-y-0 left-0 w-[70%] sm:w-2/3 md:w-1/2 lg:w-[48%] bg-gradient-to-r from-black via-black/85 to-transparent pointer-events-none z-[1]" />
 
-        {/* Mobile Full Screen Subtle Tint so headline text is ultra readable */}
-        <div className="absolute inset-0 bg-black/45 sm:bg-transparent pointer-events-none z-[1]" />
-
-        {/* Subtle Top & Bottom Vignettes for seamless blending */}
-        <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/80 via-black/30 to-transparent pointer-events-none z-[1]" />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none z-[1]" />
+        {/* Subtle Top & Bottom Vignettes for seamless blending and button contrast */}
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/80 via-black/20 to-transparent pointer-events-none z-[1]" />
+        <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black via-black/50 to-transparent pointer-events-none z-[1]" />
 
       </div>
 
@@ -224,34 +221,34 @@ export const HeroSection: React.FC = () => {
             {/* Profiles Links */}
             <motion.div
               variants={fadeUpVariants}
-              className="flex flex-wrap items-center gap-3 sm:gap-5 pt-2 text-[10.5px] sm:text-[11px] font-mono tracking-[0.16em] sm:tracking-[0.2em] text-[var(--text-primary)]"
+              className="flex flex-wrap items-center gap-3 sm:gap-5 pt-2 text-[10.5px] sm:text-[11px] font-mono tracking-[0.16em] sm:tracking-[0.2em] text-[#E8DFD8]"
             >
-              <span className="text-[var(--border-highlight)] text-[9.5px] sm:text-[10px] uppercase font-sans tracking-[0.2em] sm:tracking-[0.25em] font-medium">PROFILES //</span>
+              <span className="text-[#D4AF37] text-[9.5px] sm:text-[10px] uppercase font-sans tracking-[0.2em] sm:tracking-[0.25em] font-semibold">PROFILES //</span>
               <a
                 href="https://www.linkedin.com/in/utshoroy261/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[#D4AF37] transition-colors flex items-center space-x-1"
+                className="text-[#E8DFD8] hover:text-[#D4AF37] transition-colors flex items-center space-x-1"
               >
                 <span>LINKEDIN</span>
                 <span className="text-[10px] text-[#D4AF37]">↗</span>
               </a>
-              <span aria-hidden="true" className="text-[var(--border-subtle)] font-bold">•</span>
+              <span aria-hidden="true" className="text-[#8C6D4F] font-bold">•</span>
               <a
                 href="https://github.com/utsho261"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[#D4AF37] transition-colors flex items-center space-x-1"
+                className="text-[#E8DFD8] hover:text-[#D4AF37] transition-colors flex items-center space-x-1"
               >
                 <span>GITHUB</span>
                 <span className="text-[10px] text-[#D4AF37]">↗</span>
               </a>
-              <span aria-hidden="true" className="text-[var(--border-subtle)] font-bold">•</span>
+              <span aria-hidden="true" className="text-[#8C6D4F] font-bold">•</span>
               <a
                 href="https://codeforces.com/profile/UtshoRoy"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[#D4AF37] transition-colors flex items-center space-x-1"
+                className="text-[#E8DFD8] hover:text-[#D4AF37] transition-colors flex items-center space-x-1"
               >
                 <span>CODEFORCES</span>
                 <span className="text-[10px] text-[#D4AF37]">↗</span>

@@ -131,7 +131,7 @@ export const ContactSection: React.FC = () => {
                     rel="noopener noreferrer"
                     className="flex items-center justify-between p-3.5 rounded-sm border border-[var(--border-medium)] bg-[var(--bg-surface)] hover:border-[var(--border-highlight)] hover:bg-[var(--bg-surface-elevated)] transition-all duration-300 group shadow-sm"
                   >
-                    <span className="text-xs font-mono text-[var(--border-highlight)]">LINKEDIN</span>
+                    <span className="text-xs font-mono font-semibold tracking-wider text-[var(--accent-gold)] group-hover:text-[var(--border-highlight)]">LINKEDIN</span>
                     <span className="text-xs text-[var(--text-muted)] group-hover:text-[var(--border-highlight)] transform transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                   </a>
 
@@ -141,7 +141,7 @@ export const ContactSection: React.FC = () => {
                     rel="noopener noreferrer"
                     className="flex items-center justify-between p-3.5 rounded-sm border border-[var(--border-medium)] bg-[var(--bg-surface)] hover:border-[var(--border-highlight)] hover:bg-[var(--bg-surface-elevated)] transition-all duration-300 group shadow-sm"
                   >
-                    <span className="text-xs font-mono text-[var(--border-highlight)]">GITHUB</span>
+                    <span className="text-xs font-mono font-semibold tracking-wider text-[var(--accent-gold)] group-hover:text-[var(--border-highlight)]">GITHUB</span>
                     <span className="text-xs text-[var(--text-muted)] group-hover:text-[var(--border-highlight)] transform transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                   </a>
                 </div>
@@ -153,7 +153,7 @@ export const ContactSection: React.FC = () => {
                     rel="noopener noreferrer"
                     className="flex items-center justify-between p-3.5 rounded-sm border border-[var(--border-medium)] bg-[var(--bg-surface)] hover:border-[var(--border-highlight)] hover:bg-[var(--bg-surface-elevated)] transition-all duration-300 group shadow-sm"
                   >
-                    <span className="text-xs font-mono text-[var(--border-highlight)]">CODEFORCES</span>
+                    <span className="text-xs font-mono font-semibold tracking-wider text-[var(--accent-gold)] group-hover:text-[var(--border-highlight)]">CODEFORCES</span>
                     <span className="text-xs text-[var(--text-muted)] group-hover:text-[var(--border-highlight)] transform transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                   </a>
 
@@ -163,7 +163,7 @@ export const ContactSection: React.FC = () => {
                     rel="noopener noreferrer"
                     className="flex items-center justify-between p-3.5 rounded-sm border border-[var(--border-medium)] bg-[var(--bg-surface)] hover:border-[var(--border-highlight)] hover:bg-[var(--bg-surface-elevated)] transition-all duration-300 group shadow-sm"
                   >
-                    <span className="text-xs font-mono text-[var(--border-highlight)]">WHATSAPP</span>
+                    <span className="text-xs font-mono font-semibold tracking-wider text-[var(--accent-gold)] group-hover:text-[var(--border-highlight)]">WHATSAPP</span>
                     <span className="text-xs text-[var(--text-muted)] group-hover:text-[var(--border-highlight)] transform transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                   </a>
                 </div>
@@ -175,7 +175,7 @@ export const ContactSection: React.FC = () => {
                     rel="noopener noreferrer"
                     className="flex items-center justify-between p-3.5 rounded-sm border border-[var(--border-medium)] bg-[var(--bg-surface)] hover:border-[var(--border-highlight)] hover:bg-[var(--bg-surface-elevated)] transition-all duration-300 group shadow-sm"
                   >
-                    <span className="text-xs font-mono text-[var(--border-highlight)]">TELEGRAM</span>
+                    <span className="text-xs font-mono font-semibold tracking-wider text-[var(--accent-gold)] group-hover:text-[var(--border-highlight)]">TELEGRAM</span>
                     <span className="text-xs text-[var(--text-muted)] group-hover:text-[var(--border-highlight)] transform transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                   </a>
 
