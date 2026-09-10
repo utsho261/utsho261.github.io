@@ -4,23 +4,23 @@ import type { Variants } from 'framer-motion';
 import { ThemeToggle } from './ThemeToggle';
 
 const containerVariants: Variants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 1 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.16,
-      delayChildren: 0.2,
+      staggerChildren: 0.08,
+      delayChildren: 0.04,
     },
   },
 };
 
 const fadeUpVariants: Variants = {
-  hidden: { opacity: 0.7, y: 8 },
+  hidden: { opacity: 1, y: 0 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.45,
+      duration: 0.35,
       ease: [0.16, 1, 0.3, 1],
     },
   },
@@ -35,6 +35,16 @@ const navItems = [
 ];
 
 export const HeroSection: React.FC = () => {
+  const [canLoadVideo, setCanLoadVideo] = React.useState(false);
+
+  React.useEffect(() => {
+    // Delay video network request slightly (500ms) to prioritize critical fonts and main layout paint
+    const timer = setTimeout(() => {
+      setCanLoadVideo(true);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="relative w-full min-h-[100dvh] h-screen overflow-hidden bg-black text-[#e8dfd8] font-sans selection:bg-[#cbb59d] selection:text-black">
 
@@ -49,12 +59,12 @@ export const HeroSection: React.FC = () => {
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="none"
             width={1080}
             height={1920}
             className="h-full w-auto max-w-none object-contain origin-right scale-100 lg:scale-[1.06] opacity-65 sm:opacity-95 transition-opacity -translate-x-0 lg:-translate-x-8 xl:-translate-x-10"
           >
-            <source src="/videos/hero.mp4" type="video/mp4" />
+            {canLoadVideo && <source src="/videos/hero.mp4" type="video/mp4" />}
           </video>
         </div>
 
@@ -138,8 +148,8 @@ export const HeroSection: React.FC = () => {
               </span>
             </motion.div>
 
-            {/* Massive Condensed Headline */}
-            <motion.div variants={fadeUpVariants} className="relative mb-2.5 select-none min-h-auto sm:min-h-[160px] md:min-h-[190px] lg:min-h-[230px]">
+            {/* Massive Condensed Headline - Rendered with immediate opacity for instant LCP */}
+            <div className="relative mb-2.5 select-none min-h-auto sm:min-h-[160px] md:min-h-[190px] lg:min-h-[230px]">
               <h1
                 className="text-[3.2rem] xs:text-6xl sm:text-7xl md:text-8xl lg:text-[7.2rem] xl:text-[7.8rem] tracking-tight uppercase leading-[0.88] sm:leading-[0.83]"
                 style={{ fontFamily: "'Bebas Neue', sans-serif" }}
@@ -159,7 +169,7 @@ export const HeroSection: React.FC = () => {
                   ANDROID APPS
                 </span>
               </h1>
-            </motion.div>
+            </div>
 
             {/* Subtitle Technologies */}
             <motion.div variants={fadeUpVariants} className="mb-2.5">

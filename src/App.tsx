@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { HeroSection } from './components/HeroSection';
-import { AboutSection } from './components/AboutSection';
-import { ProjectsSection } from './components/ProjectsSection';
-import { SkillsSection } from './components/SkillsSection';
-import { ExperienceSection } from './components/ExperienceSection';
-import { ContactSection } from './components/ContactSection';
 import { ThemeToggle } from './components/ThemeToggle';
 import { motion, AnimatePresence } from 'framer-motion';
+
+// Code-split below-the-fold sections to drastically accelerate FCP and LCP
+const AboutSection = lazy(() => import('./components/AboutSection').then(m => ({ default: m.AboutSection })));
+const ProjectsSection = lazy(() => import('./components/ProjectsSection').then(m => ({ default: m.ProjectsSection })));
+const SkillsSection = lazy(() => import('./components/SkillsSection').then(m => ({ default: m.SkillsSection })));
+const ExperienceSection = lazy(() => import('./components/ExperienceSection').then(m => ({ default: m.ExperienceSection })));
+const ContactSection = lazy(() => import('./components/ContactSection').then(m => ({ default: m.ContactSection })));
 
 const StickyNav: React.FC = () => {
   const [showNav, setShowNav] = useState(false);
@@ -190,17 +192,31 @@ const FloatingControls: React.FC = () => {
 function PortfolioContent() {
   const { theme } = useTheme();
 
+  useEffect(() => {
+    // Quietly prefetch below-the-fold modules after initial render (1s)
+    const prefetchTimer = setTimeout(() => {
+      import('./components/AboutSection');
+      import('./components/ProjectsSection');
+      import('./components/SkillsSection');
+      import('./components/ExperienceSection');
+      import('./components/ContactSection');
+    }, 1000);
+    return () => clearTimeout(prefetchTimer);
+  }, []);
+
   return (
     <div className={`w-full min-h-screen ${theme} theme-transition font-sans selection:bg-[#cbb59d] selection:text-black`}>
       <StickyNav />
       <main id="main-content" role="main" className="w-full">
         <HeroSection />
-        <AboutSection />
-        <ProjectsSection />
-        <SkillsSection />
-        <ExperienceSection />
+        <Suspense fallback={<div className="w-full min-h-[40vh] flex items-center justify-center text-[10px] tracking-[0.3em] uppercase text-[#D4AF37]/50">Loading Experience...</div>}>
+          <AboutSection />
+          <ProjectsSection />
+          <SkillsSection />
+          <ExperienceSection />
+          <ContactSection />
+        </Suspense>
       </main>
-      <ContactSection />
       <FloatingControls />
     </div>
   );
