@@ -72,7 +72,7 @@ const flagshipProjects: Project[] = [
     category: 'MOBILE GEO-ALERT & REAL-TIME CLOUD',
     description:
       'Hyperlocal emergency notification and community announcement broadcasting platform for Bangladesh. Features Google Maps proximity pinning, Cloudinary API real-time media optimization, live community chat via Firebase Realtime Database, and instant push broadcasts via Firebase Cloud Messaging.',
-    githubUrl: 'https://github.com/utsho261/Town-Crier-BD',
+    githubUrl: 'https://github.com/utsho261/TownCrierBD',
     tech: [
       'Android (Java)',
       'Firebase Realtime DB',
