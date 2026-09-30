@@ -129,7 +129,7 @@ export const AboutSection: React.FC = () => {
               className="text-xs sm:text-sm md:text-[14.5px] font-light text-[var(--text-secondary)] leading-[1.85] tracking-wide mb-10 max-w-xl"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
-              I'm <span className="text-[var(--accent-gold)] font-medium">Utsho Roy</span>, a Backend & Android Developer with a strong foundation in Computer Science & Engineering from Bangladesh University of Business and Technology (BUBT). I specialize in engineering high-performance Django REST APIs, scalable database architectures, and native Android applications integrated with Firebase and Google Maps APIs. Passionate about clean architecture, query optimization, and real-time mobile cloud systems.
+              I'm <span className="text-[var(--accent-gold)] font-medium">Utsho Roy</span>, a Junior Backend Developer and Computer Science undergraduate at Bangladesh University of Business and Technology (BUBT, CGPA 3.75). I specialize in architecting high-throughput RESTful APIs with Python, Django 5, and Django REST Framework, paired with optimized PostgreSQL databases. Passionate about query optimization (achieving 35% faster response times), database indexing, and secure role-based access control (RBAC). With 154+ algorithmic problems solved on Codeforces, I bring strong CS foundations and clean OOP architecture to production software systems.
             </motion.p>
 
             {/* Concise 4-Item Achievement Metrics Grid */}
@@ -158,16 +158,16 @@ export const AboutSection: React.FC = () => {
               <div className="relative flex flex-col p-3.5 rounded-sm border border-[var(--border-subtle)] bg-[var(--bg-surface-elevated)]/70 backdrop-blur-md hover:border-[var(--border-highlight)] hover:bg-[var(--bg-surface-elevated)] transition-all duration-300 group shadow-sm overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--border-highlight)]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 <span className="text-[8px] font-mono tracking-[0.2em] uppercase text-[var(--text-muted)] group-hover:text-[var(--border-highlight)] transition-colors mb-1">
-                  OPEN SOURCE
+                  QUERY SPEEDUP
                 </span>
                 <span 
                   className="text-3xl sm:text-4xl font-light text-[var(--border-highlight)] tracking-tight leading-none group-hover:translate-x-0.5 transition-transform"
                   style={{ fontFamily: "'Bebas Neue', sans-serif" }}
                 >
-                  17+
+                  35%
                 </span>
                 <span className="text-[9.5px] font-medium tracking-[0.18em] uppercase text-[var(--text-secondary)] mt-1.5">
-                  GitHub Repos
+                  Faster Response
                 </span>
               </div>
 
@@ -175,16 +175,16 @@ export const AboutSection: React.FC = () => {
               <div className="relative flex flex-col p-3.5 rounded-sm border border-[var(--border-subtle)] bg-[var(--bg-surface-elevated)]/70 backdrop-blur-md hover:border-[var(--border-highlight)] hover:bg-[var(--bg-surface-elevated)] transition-all duration-300 group shadow-sm overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--border-highlight)]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 <span className="text-[8px] font-mono tracking-[0.2em] uppercase text-[var(--text-muted)] group-hover:text-[var(--border-highlight)] transition-colors mb-1">
-                  FULL STACK & APPS
+                  ENTERPRISE AUTH
                 </span>
                 <span 
                   className="text-3xl sm:text-4xl font-light text-[var(--text-heading)] group-hover:text-[var(--border-highlight)] tracking-tight leading-none group-hover:translate-x-0.5 transition-transform"
                   style={{ fontFamily: "'Bebas Neue', sans-serif" }}
                 >
-                  5+
+                  4-TIER
                 </span>
                 <span className="text-[9.5px] font-medium tracking-[0.18em] uppercase text-[var(--text-secondary)] mt-1.5">
-                  Core Projects
+                  RBAC &amp; SimpleJWT
                 </span>
               </div>
 
@@ -192,13 +192,13 @@ export const AboutSection: React.FC = () => {
               <div className="relative flex flex-col p-3.5 rounded-sm border border-[var(--border-subtle)] bg-[var(--bg-surface-elevated)]/70 backdrop-blur-md hover:border-[var(--border-highlight)] hover:bg-[var(--bg-surface-elevated)] transition-all duration-300 group shadow-sm overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--border-highlight)]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 <span className="text-[8px] font-mono tracking-[0.2em] uppercase text-[var(--text-muted)] group-hover:text-[var(--border-highlight)] transition-colors mb-1">
-                  DEGREE CANDIDATE
+                  BUBT CGPA
                 </span>
                 <span 
                   className="text-3xl sm:text-4xl font-light text-[var(--border-highlight)] tracking-tight leading-none group-hover:translate-x-0.5 transition-transform"
                   style={{ fontFamily: "'Bebas Neue', sans-serif" }}
                 >
-                  BUBT
+                  3.75
                 </span>
                 <span className="text-[9.5px] font-medium tracking-[0.18em] uppercase text-[var(--text-secondary)] mt-1.5">
                   B.Sc. in CSE
@@ -263,7 +263,7 @@ export const AboutSection: React.FC = () => {
                 {/* Portrait Photo */}
                 <motion.img
                   src={aboutImg}
-                  alt="Utsho Roy — Backend and Android Developer"
+                  alt="Utsho Roy — Junior Backend Developer"
                   width={1084}
                   height={992}
                   loading="lazy"
@@ -288,7 +288,7 @@ export const AboutSection: React.FC = () => {
                   Utsho Roy
                 </div>
                 <span className="text-[9px] font-mono tracking-[0.25em] uppercase text-[var(--text-muted)] mt-1">
-                  BACKEND &amp; ANDROID DEVELOPER
+                  JUNIOR BACKEND DEVELOPER | PYTHON SPECIALIST
                 </span>
               </div>
             </motion.div>

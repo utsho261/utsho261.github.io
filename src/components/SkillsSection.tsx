@@ -32,36 +32,37 @@ const skillDomains: SkillDomain[] = [
     title: 'BACKEND & REST APIS',
     simpleName: 'Python & Django Specialist',
     badge: 'CORE EXPERTISE',
-    stat: 'SERVER & APIS',
+    stat: 'HIGH THROUGHPUT',
     colSpan: 'lg:col-span-6',
-    whatItIs: 'I build fast, secure web APIs and server logic that connect frontend and mobile apps to databases.',
+    whatItIs: 'I architect scalable, secure RESTful web APIs and server logic connecting clients with relational and NoSQL databases.',
     keyFeatures: [
       {
-        title: 'RESTful API Development',
-        detail: 'Creating clean, robust API endpoints using Django REST Framework for mobile and web clients.',
+        title: 'RESTful API Architecture',
+        detail: 'Creating clean, robust API endpoints using Django 5, Django REST Framework, and FastAPI.',
       },
       {
-        title: 'User Login & Security',
-        detail: 'Secure token authentication (JWT), password hashing, and role-based permissions.',
+        title: 'Stateless Security & RBAC',
+        detail: 'Implementing secure token authentication (SimpleJWT), password hashing, and 4-tier role-based access control.',
       },
       {
-        title: 'Background Tasks & Queues',
-        detail: 'Using Celery and Redis to dispatch background jobs and keep API responses fast.',
+        title: 'Asynchronous Tasks & Queues',
+        detail: 'Using Celery and Redis to dispatch background jobs, send notifications, and keep API latencies low.',
       },
     ],
     technologies: [
-      'Python 3',
-      'Django',
+      'Python',
+      'Django 5',
       'Django REST Framework',
-      'RESTful APIs',
-      'JWT Authentication',
-      'Celery & Redis',
+      'FastAPI',
       'Flask',
+      'REST APIs',
+      'SimpleJWT',
+      'Celery & Redis',
       'Postman',
       'Git & GitHub',
     ],
-    builtProject: 'BlogHub (Full Blogging Platform) & CampusConnect',
-    projectUrl: 'https://github.com/utsho261/bloghub',
+    builtProject: 'CampusConnect (BUBT SDP-400) & Hospital Management System',
+    projectUrl: 'https://github.com/utsho261/CampusConnect',
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
@@ -69,66 +70,26 @@ const skillDomains: SkillDomain[] = [
     ),
   },
   {
-    key: 'android',
-    id: '02',
-    title: 'NATIVE ANDROID APPS',
-    simpleName: 'Native Android (Java)',
-    badge: 'MOBILE SPECIALTY',
-    stat: 'PLAYSTORE READY',
-    colSpan: 'lg:col-span-6',
-    whatItIs: 'I create native Android apps with GPS location, instant push notifications, and offline storage.',
-    keyFeatures: [
-      {
-        title: 'Live Location & Maps',
-        detail: 'Integrating Google Maps to show nearby users, live coordinates, and custom radar discovery.',
-      },
-      {
-        title: 'Push Notifications & Alerts',
-        detail: 'Sending instant notifications to users via Firebase Cloud Messaging (FCM).',
-      },
-      {
-        title: 'Works Offline (Local Storage)',
-        detail: 'Using SQLite & Room DB so the app stores data securely and works seamlessly without internet.',
-      },
-    ],
-    technologies: [
-      'Android SDK (Java)',
-      'Google Maps API',
-      'Firebase Push (FCM)',
-      'Firebase Realtime DB',
-      'SQLite / Room DB',
-      'Location Radar',
-      'Background Services',
-    ],
-    builtProject: 'Town Crier BD (Location Social App) & Medicine Tracker',
-    projectUrl: 'https://github.com/utsho261',
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-      </svg>
-    ),
-  },
-  {
     key: 'database',
-    id: '03',
-    title: 'DATABASES & STORAGE',
-    simpleName: 'SQL & NoSQL Systems',
+    id: '02',
+    title: 'DATABASES & ORM OPTIMIZATION',
+    simpleName: 'PostgreSQL, MySQL & MongoDB',
     badge: 'DATA INTEGRITY',
-    stat: 'FAST QUERIES',
+    stat: '35% SPEEDUP',
     colSpan: 'lg:col-span-6',
-    whatItIs: 'I design databases that store user information safely and return search results in milliseconds.',
+    whatItIs: 'I design resilient database schemas, optimize relational queries, and configure caching for microsecond-level retrieval.',
     keyFeatures: [
       {
-        title: 'Relational Data (PostgreSQL / MySQL)',
-        detail: 'Designing organized tables with foreign keys and ACID transactions that prevent data bugs.',
+        title: 'Relational Architecture (PostgreSQL / MySQL)',
+        detail: 'Structuring normalized relational schemas with foreign keys, indexes, and strict ACID transaction compliance.',
       },
       {
-        title: 'Fast Query Optimization',
-        detail: 'Writing efficient queries and using indexes so pages load instantly even with large datasets.',
+        title: 'Database Query Optimization',
+        detail: 'Writing efficient queries, analyzing execution plans, and indexing models to achieve 35% faster API response times.',
       },
       {
         title: 'NoSQL Document Store (MongoDB)',
-        detail: 'Flexible document storage for real-time analytics, dynamic budgets, and fast logging.',
+        detail: 'Engineered flexible document storage with PyMongo for real-time financial tracking and dynamic budget analytics.',
       },
     ],
     technologies: [
@@ -137,11 +98,12 @@ const skillDomains: SkillDomain[] = [
       'MongoDB',
       'SQLite',
       'Django ORM',
+      'Database Indexing',
       'Query Optimization',
-      'Data Indexing',
+      'ACID Transactions',
     ],
-    builtProject: 'Smart Expense Tracker (MongoDB) & CampusConnect (PostgreSQL)',
-    projectUrl: 'https://github.com/utsho261/smart-expense-tracker',
+    builtProject: 'CampusConnect (PostgreSQL) & Smart Expense Tracker (MongoDB)',
+    projectUrl: 'https://github.com/utsho261/hospital_management',
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
@@ -150,38 +112,39 @@ const skillDomains: SkillDomain[] = [
   },
   {
     key: 'problem-solving',
-    id: '04',
-    title: 'ALGORITHMIC PROBLEM SOLVING',
-    simpleName: 'Codeforces Competitive Programming',
+    id: '03',
+    title: 'ALGORITHMIC PROBLEM SOLVING & CS',
+    simpleName: 'Competitive Programming (Codeforces)',
     badge: 'CODEFORCES',
     stat: '154+ SOLVED',
     colSpan: 'lg:col-span-6',
-    whatItIs: 'I practice competitive programming on Codeforces to sharpen mathematical logic and optimal time/space complexity.',
+    whatItIs: 'I practice competitive programming on Codeforces to strengthen algorithmic efficiency, optimal data structures, and clean OOP design.',
     keyFeatures: [
       {
         title: '154+ Algorithmic Problems Solved',
-        detail: 'Hands-on practice across Implementation (102), Math (50), Greedy (27), Brute Force (25), and Strings (24).',
+        detail: 'Hands-on practice across implementation, math, greedy algorithms, brute force, and string parsing.',
       },
       {
-        title: 'Active Contest Rating (956 Max)',
-        detail: 'Active participant in timed division contests on Codeforces, writing fast and correct solutions under pressure.',
+        title: 'Contest Rating (956 Max)',
+        detail: 'Active participant in timed division contests on Codeforces, writing clean and correct solutions under pressure.',
       },
       {
-        title: 'Optimal Time & Space Complexity',
-        detail: 'Ensuring algorithms run within strict memory limits and execution time to avoid TLE and memory bottlenecks.',
+        title: 'Data Structures & OOP Foundations',
+        detail: 'Solid understanding of trees, graphs, sorting, searching, and object-oriented design patterns.',
       },
     ],
     technologies: [
       'Codeforces @UtshoRoy',
       '154+ Solved',
-      'Implementation',
+      'Algorithms & Data Structures',
+      'OOP Architecture',
       'Greedy Algorithms',
-      'Math & Logic',
-      'Time Complexity',
-      'Data Structures',
-      'Strings',
+      'Time Complexity (Big-O)',
+      'C++',
+      'Python',
+      'Java',
     ],
-    builtProject: 'Codeforces Profile @UtshoRoy (Rating: 956 // 154 Solved)',
+    builtProject: 'Codeforces Profile @UtshoRoy (Rating: 956 // 154+ Solved)',
     projectUrl: 'https://codeforces.com/profile/UtshoRoy',
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -189,32 +152,73 @@ const skillDomains: SkillDomain[] = [
       </svg>
     ),
   },
+  {
+    key: 'android',
+    id: '04',
+    title: 'MOBILE & REAL-TIME CLOUD',
+    simpleName: 'Native Android & Firebase',
+    badge: 'MOBILE ARCHITECTURE',
+    stat: 'CLIENT INTEGRATION',
+    colSpan: 'lg:col-span-6',
+    whatItIs: 'I develop native Android client applications with live location tracking, instant push notifications, and offline SQLite synchronization.',
+    keyFeatures: [
+      {
+        title: 'Live Location & Maps API',
+        detail: 'Integrating Google Maps API to broadcast coordinates, calculate proximity, and display dynamic radar pins.',
+      },
+      {
+        title: 'Push Notifications (FCM)',
+        detail: 'Sending instant notifications to users via Firebase Cloud Messaging for critical alerts and updates.',
+      },
+      {
+        title: 'Offline Storage & Local DB',
+        detail: 'Using SQLite & Room DB so mobile clients retain cached data seamlessly without internet connectivity.',
+      },
+    ],
+    technologies: [
+      'Android SDK (Java)',
+      'Firebase Cloud Messaging (FCM)',
+      'Firebase Realtime DB',
+      'Google Maps API',
+      'SQLite / Room DB',
+      'Cloudinary API',
+      'Linux / Bash',
+    ],
+    builtProject: 'Town Crier BD (Location Alert Platform) & DescoSmartApp',
+    projectUrl: 'https://github.com/utsho261/Town-Crier-BD',
+    icon: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+      </svg>
+    ),
+  },
 ];
 
 const marqueeTechs = [
-  'PYTHON 3',
+  'PYTHON',
+  'DJANGO 5',
   'DJANGO REST FRAMEWORK',
-  'NATIVE ANDROID (JAVA)',
-  'CODEFORCES (154+ SOLVED)',
   'POSTGRESQL',
-  'FIREBASE REALTIME DB',
+  'QUERY OPTIMIZATION',
+  'SIMPLEJWT',
+  'CELERY & REDIS',
+  'FASTAPI',
+  'FLASK',
+  'CODEFORCES (154+ SOLVED)',
   'GIT & GITHUB',
-  'REDIS & CELERY',
-  'GOOGLE MAPS API',
-  'JWT AUTHENTICATION',
+  'POSTMAN',
+  'LINUX / BASH',
   'MYSQL',
   'MONGODB',
-  'CLEAN ARCHITECTURE',
-  'ROOM DB',
-  'POSTMAN',
+  'OOP ARCHITECTURE',
 ];
 
 const filterButtons: { key: CategoryKey; label: string }[] = [
   { key: 'all', label: 'ALL DISCIPLINES' },
   { key: 'backend', label: 'PYTHON & BACKEND' },
-  { key: 'android', label: 'ANDROID APPS' },
-  { key: 'database', label: 'DATABASES & STORAGE' },
+  { key: 'database', label: 'DATABASES & ORM' },
   { key: 'problem-solving', label: 'CODEFORCES & ALGORITHMS' },
+  { key: 'android', label: 'MOBILE & CLOUD' },
 ];
 
 const containerVariants: Variants = {
@@ -332,7 +336,7 @@ export const SkillsSection: React.FC = () => {
             className="text-xs sm:text-sm text-[var(--text-secondary)] font-normal leading-relaxed max-w-md"
             style={{ fontFamily: "'Montserrat', sans-serif" }}
           >
-            A practical overview of the backend frameworks, native Android tools, databases, and competitive programming problem solving I apply to build robust software.
+            A practical overview of the Python &amp; Django backend frameworks, PostgreSQL optimization, RESTful API design, and competitive programming problem solving I apply to build robust software.
           </p>
         </motion.div>
 

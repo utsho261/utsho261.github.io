@@ -25,53 +25,97 @@ const flagshipProjects: Project[] = [
   {
     number: '01',
     title: 'CampusConnect',
-    category: 'FULL-STACK UNIVERSITY PLATFORM',
+    category: 'FULL-STACK UNIVERSITY PLATFORM (SDP-400 LEAD)',
     description:
-      'Enterprise-grade campus social & academic management platform engineered for university communities. Decoupled Single Page Application architecture with React 19, Vite, and Tailwind CSS v4 connected to a high-throughput Django 5.1 & DRF 3.15 backend via SimpleJWT authentication.',
+      'Decoupled university community platform engineered as a BUBT SDP-400 course capstone project. Features a high-throughput Django 5.1 & DRF backend with React frontend. Implemented secure user authentication and role-based permissions using SimpleJWT, and designed PostgreSQL database models with query optimization making API response times 35% faster.',
     githubUrl: 'https://github.com/utsho261/CampusConnect',
     tech: [
-      'React 19',
-      'Vite 8',
-      'Tailwind v4',
       'Django 5.1',
-      'DRF 3.15',
-      'SimpleJWT',
+      'Django REST Framework',
+      'Python',
       'PostgreSQL',
+      'SimpleJWT',
+      'Query Optimization',
+      'React 19',
       'REST APIs',
     ],
     metrics: [
-      { label: 'TIER', value: 'BUBT Capstone Project' },
+      { label: 'ROLE', value: 'Lead Backend Developer' },
+      { label: 'PERFORMANCE', value: '35% Faster Response Times' },
       { label: 'SECURITY', value: 'Stateless SimpleJWT Auth' },
-      { label: 'ARCHITECTURE', value: 'Decoupled SPA + REST' },
     ],
   },
   {
     number: '02',
     title: 'Hospital Management System (API)',
-    category: 'ENTERPRISE REST API ARCHITECTURE',
+    category: 'HEALTHCARE REST API (4-TIER RBAC)',
     description:
-      'Complete healthcare backend API architected with a strict 4-Tier Role-Based Access Control (Admin, Doctor, Patient, Receptionist) system. Features nested writable serializers for multi-drug prescriptions, automated appointment scheduling workflows, shift management, and automated billing computations.',
+      'Enterprise healthcare backend REST API architected with strict 4-Tier Role-Based Access Control (Admin, Doctor, Patient, Receptionist). Features appointment booking workflows, doctor schedule management, nested writable serializers for multi-medicine prescriptions, and billing calculation pipelines.',
     githubUrl: 'https://github.com/utsho261/hospital_management',
     tech: [
+      'Python',
       'Django 5.x',
       'Django REST Framework',
       'SimpleJWT',
       '4-Tier RBAC',
-      'MySQL / PostgreSQL',
+      'PostgreSQL / MySQL',
       'Postman API Docs',
     ],
     metrics: [
-      { label: 'ROLES', value: 'Admin, Doctor, Patient, Receptionist' },
+      { label: 'RBAC', value: 'Admin, Doctor, Patient, Receptionist' },
       { label: 'SERIALIZERS', value: 'Nested Multi-Medicine Writes' },
       { label: 'WORKFLOW', value: 'Appointments & Billing Pipelines' },
     ],
   },
   {
     number: '03',
-    title: 'Town Crier BD',
-    category: 'MOBILE GEO-ALERT & REAL-TIME CLOUD',
+    title: 'Smart Expense Tracker & Analytics API',
+    category: 'FINANCIAL ANALYTICS REST API & NOSQL',
     description:
-      'Hyperlocal emergency notification and community announcement broadcasting platform for Bangladesh. Features Google Maps proximity pinning, Cloudinary API real-time media optimization, live community chat via Firebase Realtime Database, and instant push broadcasts via Firebase Cloud Messaging.',
+      'Personal finance web service and financial analytics backend built with Flask and MongoDB. Features stateless JWT token verification, category filtering, budget threshold alerts, interactive Chart.js spending visualizations, and secure parameter validation.',
+    githubUrl: 'https://github.com/utsho261/smart-expense-tracker',
+    tech: [
+      'Python',
+      'Flask',
+      'MongoDB (PyMongo)',
+      'JWT Authentication',
+      'REST APIs',
+      'Chart.js',
+      'API Security',
+    ],
+    metrics: [
+      { label: 'DATABASE', value: 'MongoDB NoSQL Aggregations' },
+      { label: 'SECURITY', value: 'Stateless JWT Verification' },
+      { label: 'ANALYTICS', value: 'Dynamic Visual Spending Insights' },
+    ],
+  },
+  {
+    number: '04',
+    title: 'BlogHub',
+    category: 'FULL-STACK DJANGO ARCHITECTURE',
+    description:
+      'Full-featured content publishing platform with rich text editor, user profile avatars, relational category taxonomies, like counters, and moderated comment threads with strict relational database integrity.',
+    githubUrl: 'https://github.com/utsho261/bloghub',
+    tech: [
+      'Python',
+      'Django',
+      'PostgreSQL',
+      'Django ORM',
+      'Bootstrap 5',
+      'Django Auth',
+    ],
+    metrics: [
+      { label: 'ARCHITECTURE', value: 'Django MVT + REST' },
+      { label: 'DATABASE', value: 'PostgreSQL Relational Schema' },
+      { label: 'AUTH', value: 'Session & User Permissions' },
+    ],
+  },
+  {
+    number: '05',
+    title: 'Town Crier BD',
+    category: 'REAL-TIME CLOUD & GEO-ALERT PLATFORM',
+    description:
+      'Hyperlocal emergency notification and community announcement broadcasting platform for Bangladesh. Features Google Maps proximity pinning, Cloudinary API real-time media CDN, live community chat via Firebase Realtime Database, and instant push broadcasts via Firebase Cloud Messaging.',
     githubUrl: 'https://github.com/utsho261/TownCrierBD',
     tech: [
       'Android (Java)',
@@ -82,51 +126,9 @@ const flagshipProjects: Project[] = [
       'Firebase Auth',
     ],
     metrics: [
-      { label: 'GEO-LOCATION', value: 'Google Maps Pinning' },
+      { label: 'GEO-LOCATION', value: 'Google Maps API Pinning' },
       { label: 'BROADCAST', value: 'Instant FCM Push Alerts' },
-      { label: 'MEDIA CDN', value: 'Cloudinary Optimization' },
-    ],
-  },
-  {
-    number: '04',
-    title: 'DescoSmartApp',
-    category: 'UTILITY AUTOMATION & PUSH ALERT',
-    description:
-      'Smart utility Android application engineered for DESCO prepaid electricity customers in Dhaka. Automates background meter balance synchronization, triggers low-balance threshold alert push notifications before power shutoff, and provides offline SQLite caching for recharge analytics.',
-    githubUrl: 'https://github.com/utsho261/DescoSmartApp',
-    tech: [
-      'Android (Java)',
-      'Background Daemon',
-      'SQLite Caching',
-      'Web Scraping / API',
-      'Push Notifications',
-      'Android SDK',
-    ],
-    metrics: [
-      { label: 'BACKGROUND', value: 'Automated Sync Service' },
-      { label: 'ALERT ENGINE', value: 'Low-Balance Push Alert' },
-      { label: 'STORAGE', value: 'Offline SQLite Cache' },
-    ],
-  },
-  {
-    number: '05',
-    title: 'Smart Expense Tracker',
-    category: 'NOSQL FINANCIAL ANALYTICS',
-    description:
-      'Personal finance management and visual budget analytics web platform built with Flask and MongoDB. Features granular expense categorization, budget goal threshold tracking, dynamic visual spending insights with Chart.js, and stateless JWT session management.',
-    githubUrl: 'https://github.com/utsho261/smart-expense-tracker',
-    tech: [
-      'Python',
-      'Flask',
-      'MongoDB (PyMongo)',
-      'JWT Authentication',
-      'Chart.js',
-      'HTML5 / CSS3',
-    ],
-    metrics: [
-      { label: 'DATABASE', value: 'MongoDB NoSQL Documents' },
-      { label: 'ANALYTICS', value: 'Interactive Chart.js Insights' },
-      { label: 'SECURITY', value: 'Stateless JWT Verification' },
+      { label: 'MEDIA CDN', value: 'Cloudinary CDN Integration' },
     ],
   },
 ];
@@ -134,11 +136,11 @@ const flagshipProjects: Project[] = [
 const archiveProjects: ArchiveProject[] = [
   {
     rank: '06',
-    title: 'BlogHub',
-    category: 'FULL-STACK DJANGO MVT',
-    description: 'Full-featured content publishing platform with rich text editor, user profile avatars, category taxonomy, like counters, and moderated comment threads.',
-    tech: ['Python', 'Django', 'PostgreSQL / SQLite', 'Bootstrap 5', 'Django Auth'],
-    githubUrl: 'https://github.com/utsho261/bloghub',
+    title: 'DescoSmartApp',
+    category: 'UTILITY AUTOMATION & PUSH ALERT',
+    description: 'Smart utility Android application engineered for DESCO prepaid electricity customers in Dhaka. Automates background meter balance synchronization, triggers low-balance threshold alert push notifications before power shutoff, and provides offline SQLite caching for recharge analytics.',
+    tech: ['Android (Java)', 'Background Daemon', 'SQLite Caching', 'Web Scraping / API', 'Push Notifications'],
+    githubUrl: 'https://github.com/utsho261/DescoSmartApp',
   },
   {
     rank: '07',
@@ -248,7 +250,7 @@ export const ProjectsSection: React.FC = () => {
             className="text-[11px] font-medium tracking-[0.35em] uppercase text-[var(--border-highlight)]"
             style={{ fontFamily: "'Montserrat', sans-serif" }}
           >
-            02 / FEATURED WORK
+            02 / FEATURED BACKEND SYSTEMS
           </span>
           <div className="w-20 h-[1px] bg-gradient-to-r from-[var(--border-highlight)] via-[var(--border-subtle)] to-transparent" />
         </motion.div>
@@ -277,7 +279,7 @@ export const ProjectsSection: React.FC = () => {
             className="text-xs sm:text-sm font-light text-[var(--text-secondary)] max-w-sm mt-4 md:mt-0 leading-relaxed"
             style={{ fontFamily: "'Montserrat', sans-serif" }}
           >
-            Scroll down to unfold the system architecture cards. Each platform was engineered to solve real-world operational challenges.
+            Scroll down to explore backend system architectures. Each platform was engineered with production-ready REST APIs, database query optimization, and secure role-based permissions.
           </p>
         </motion.div>
 

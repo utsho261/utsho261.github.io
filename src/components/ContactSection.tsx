@@ -124,6 +124,17 @@ export const ContactSection: React.FC = () => {
                   <span className="text-xs text-[var(--text-muted)] group-hover:text-[var(--border-highlight)] transform transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                 </a>
 
+                <a
+                  href="tel:+8801797732899"
+                  className="flex items-center justify-between p-3.5 rounded-sm border border-[var(--border-medium)] bg-[var(--bg-surface)] hover:border-[var(--border-highlight)] hover:bg-[var(--bg-surface-elevated)] transition-all duration-300 group shadow-sm"
+                >
+                  <div className="flex items-center space-x-3">
+                    <span className="text-xs font-mono text-[var(--border-highlight)]">// PHONE</span>
+                    <span className="text-xs text-[var(--text-primary)] group-hover:text-[var(--border-highlight)] transition-colors">+880 1797-732899</span>
+                  </div>
+                  <span className="text-xs text-[var(--text-muted)] group-hover:text-[var(--border-highlight)] transform transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                </a>
+
                 <div className="grid grid-cols-2 gap-3">
                   <a
                     href="https://www.linkedin.com/in/utshoroy261/"
@@ -342,7 +353,7 @@ export const ContactSection: React.FC = () => {
         {/* System Footer Line */}
         <div className="pt-16 mt-16 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row items-center justify-between text-center sm:text-left gap-4">
           <span className="text-[10px] font-mono tracking-widest text-[var(--text-muted)] uppercase">
-            UTSHO ROY // BACKEND &amp; ANDROID DEVELOPER
+            UTSHO ROY // JUNIOR BACKEND DEVELOPER
           </span>
           <span className="text-[10px] font-mono text-[var(--text-muted)]">
             © {new Date().getFullYear()} • ENGINEERED WITH PRECISION

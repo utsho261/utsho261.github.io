@@ -1,6 +1,6 @@
-# Utsho Roy — Cinematic Portfolio Website
+# Utsho Roy — Junior Backend Developer Portfolio
 
-A luxury, high-performance portfolio website showcasing backend engineering, architecture, and projects with cinematic styling, custom animations, and responsive interactions.
+A luxury, high-performance portfolio website showcasing Python & Django REST backend engineering, PostgreSQL query optimization, and scalable web architectures.
 
 🔗 **Live Website:** [https://utsho261.github.io/](https://utsho261.github.io/)
 
