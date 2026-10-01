@@ -32,9 +32,9 @@ const journey: RouteStop[] = [
     id: '03',
     tag: 'ACADEMIC DEGREE',
     year: '2021 — PRESENT',
-    title: 'B.SC. IN COMPUTER SCIENCE & ENGINEERING (CGPA 3.75)',
+    title: 'B.SC. IN COMPUTER SCIENCE & ENGINEERING',
     organization: 'BANGLADESH UNIVERSITY OF BUSINESS AND TECHNOLOGY (BUBT)',
-    description: 'Undergraduate CSE candidate (CGPA 3.75). Serving as SDP-400 Lead for CampusConnect and active member of the Competitive Programming Squad.',
+    description: 'Undergraduate CSE candidate. Serving as SDP-400 Lead for CampusConnect and active member of the Competitive Programming Squad.',
   },
   {
     id: '04',

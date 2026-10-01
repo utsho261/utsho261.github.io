@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import { ThemeToggle } from './ThemeToggle';
@@ -35,32 +35,40 @@ const navItems = [
 ];
 
 export const HeroSection: React.FC = () => {
+  const [copiedEmail, setCopiedEmail] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText('utshoroy5@gmail.com');
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2200);
+  };
+
   return (
     <section className="relative w-full min-h-[100dvh] overflow-hidden bg-black text-[#e8dfd8] font-sans selection:bg-[#cbb59d] selection:text-black flex flex-col justify-between">
       
       {/* ================= 1. CINEMATIC BACKGROUND AMBIENCE ================= */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         {/* Warm Golden Spotlight Top Right */}
-        <div className="absolute -top-24 right-0 sm:right-[10%] w-80 h-80 sm:w-[38rem] sm:h-[38rem] bg-[#d4af37]/[0.12] rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -top-24 right-0 sm:right-[10%] w-80 h-80 sm:w-[42rem] sm:h-[42rem] bg-[#d4af37]/[0.13] rounded-full blur-3xl pointer-events-none" />
         
         {/* Subtle Cyber Emerald Backend Glow */}
-        <div className="absolute bottom-10 right-1/3 w-64 h-64 sm:w-[26rem] sm:h-[26rem] bg-emerald-500/[0.04] rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-10 right-1/4 w-64 h-64 sm:w-[30rem] sm:h-[30rem] bg-emerald-500/[0.04] rounded-full blur-3xl pointer-events-none" />
         
         {/* Deep Bottom Vignette */}
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black via-black/60 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-black via-black/70 to-transparent pointer-events-none" />
         
         {/* Subtle Architecture Blueprint Grid */}
         <div 
-          className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+          className="absolute inset-0 opacity-[0.035] pointer-events-none" 
           style={{
-            backgroundImage: `radial-gradient(rgba(212,175,55,0.4) 1px, transparent 1px)`,
-            backgroundSize: '32px 32px'
+            backgroundImage: `radial-gradient(rgba(212,175,55,0.45) 1px, transparent 1px)`,
+            backgroundSize: '36px 36px'
           }}
         />
       </div>
 
       {/* ================= 2. CONTENT LAYER ================= */}
-      <div className="relative z-10 flex flex-col justify-between min-h-[100dvh] w-full px-5 sm:px-12 lg:px-16 pt-5 sm:pt-6 pb-8 pointer-events-none">
+      <div className="relative z-10 flex flex-col justify-between min-h-[100dvh] w-full px-5 sm:px-12 lg:px-16 pt-5 sm:pt-6 pb-6 pointer-events-none">
 
         {/* Navigation Bar */}
         <header className="relative flex items-center justify-between w-full pointer-events-auto">
@@ -95,7 +103,7 @@ export const HeroSection: React.FC = () => {
 
             <a
               href="#contact"
-              className="group flex items-center space-x-1.5 sm:space-x-2 text-[10px] sm:text-[11px] tracking-[0.2em] sm:tracking-[0.24em] font-medium uppercase py-1.5 sm:py-2 px-3 sm:px-4 border border-[rgba(212,175,55,0.4)] hover:border-[#D4AF37] text-white transition-all duration-300 backdrop-blur-sm bg-black/60"
+              className="group flex items-center space-x-1.5 sm:space-x-2 text-[10px] sm:text-[11px] tracking-[0.2em] sm:tracking-[0.24em] font-medium uppercase py-1.5 sm:py-2 px-3 sm:px-4 border border-[rgba(212,175,55,0.4)] hover:border-[#D4AF37] text-white transition-all duration-300 backdrop-blur-sm bg-black/60 shadow-sm"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
               <span>LET&apos;S TALK</span>
@@ -107,14 +115,14 @@ export const HeroSection: React.FC = () => {
         </header>
 
         {/* Main Hero Row */}
-        <div className="relative flex flex-col lg:flex-row items-center justify-between w-full pt-8 sm:pt-10 pb-4 my-auto gap-10 lg:gap-8">
+        <div className="relative flex flex-col lg:flex-row items-center justify-between w-full pt-6 sm:pt-8 pb-3 my-auto gap-8 lg:gap-10">
 
           {/* LEFT: Headline & Backend Focus */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="max-w-sm sm:max-w-md md:max-w-lg lg:max-w-[38rem] xl:max-w-[42rem] pointer-events-auto z-20 w-full"
+            className="max-w-sm sm:max-w-md md:max-w-lg lg:max-w-[38rem] xl:max-w-[43rem] pointer-events-auto z-20 w-full"
           >
             {/* Live Availability Status Pill */}
             <motion.div variants={fadeUpVariants} className="mb-3 inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-[rgba(212,175,55,0.35)] bg-black/80 backdrop-blur-md max-w-full">
@@ -160,14 +168,14 @@ export const HeroSection: React.FC = () => {
               </p>
             </motion.div>
 
-            {/* 3-Line Description */}
+            {/* 2-Line High-Impact Description (CGPA removed) */}
             <motion.div
               variants={fadeUpVariants}
               className="text-xs sm:text-sm md:text-[13.5px] font-normal text-[#C5B8AB] leading-[1.75] tracking-wide max-w-xl mb-5 space-y-1.5"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
               <p>
-                Computer Science undergraduate student at <span className="text-white font-medium">BUBT (CGPA 3.75)</span> seeking a Junior Backend Developer or Engineering Intern position.
+                Computer Science undergraduate student at <span className="text-white font-medium">BUBT</span> seeking a Junior Backend Developer or Engineering Intern position.
               </p>
               <p>
                 Skilled in designing high-throughput RESTful APIs using Python, Django, DRF, and PostgreSQL. Experienced in database indexing, query optimization (achieving 35% speedup), SimpleJWT auth, and solving 154+ algorithmic problems on Codeforces.
@@ -183,7 +191,7 @@ export const HeroSection: React.FC = () => {
               {/* Explore My Work CTA */}
               <a
                 href="#work"
-                className="group relative inline-flex items-center justify-center space-x-2 px-6 sm:px-7 py-3 border border-[#D4AF37] bg-[#D4AF37] text-black hover:bg-[#F7E7C4] hover:border-[#F7E7C4] text-[11px] font-semibold tracking-[0.24em] uppercase transition-all duration-300 shadow-[0_0_20px_rgba(212,175,55,0.25)] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] cursor-pointer text-center"
+                className="group relative inline-flex items-center justify-center space-x-2 px-6 sm:px-7 py-3 border border-[#D4AF37] bg-[#D4AF37] text-black hover:bg-[#F7E7C4] hover:border-[#F7E7C4] text-[11px] font-semibold tracking-[0.24em] uppercase transition-all duration-300 shadow-[0_0_20px_rgba(212,175,55,0.25)] hover:shadow-[0_0_30px_rgba(212,175,55,0.45)] cursor-pointer text-center"
               >
                 <span>EXPLORE PROJECTS</span>
                 <span className="transform transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 text-xs text-black">
@@ -217,10 +225,10 @@ export const HeroSection: React.FC = () => {
               </a>
             </motion.div>
 
-            {/* Profiles Links */}
+            {/* Profiles Links + Instant Email Copy Action */}
             <motion.div
               variants={fadeUpVariants}
-              className="flex flex-wrap items-center gap-3 sm:gap-5 pt-2 text-[10.5px] sm:text-[11px] font-mono tracking-[0.16em] sm:tracking-[0.2em] text-[#E8DFD8]"
+              className="flex flex-wrap items-center gap-2.5 sm:gap-4 pt-2 text-[10.5px] sm:text-[11px] font-mono tracking-[0.16em] sm:tracking-[0.2em] text-[#E8DFD8]"
             >
               <span className="text-[#D4AF37] text-[9.5px] sm:text-[10px] uppercase font-sans tracking-[0.2em] sm:tracking-[0.25em] font-semibold">
                 PROFILES //
@@ -254,18 +262,27 @@ export const HeroSection: React.FC = () => {
                 <span>CODEFORCES (154+)</span>
                 <span className="text-[10px] text-[#D4AF37]">↗</span>
               </a>
+              <span aria-hidden="true" className="text-[#8C6D4F] font-bold">•</span>
+              <button
+                type="button"
+                onClick={handleCopyEmail}
+                className="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full border border-[#D4AF37]/50 bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 text-[#D4AF37] hover:border-[#D4AF37] transition-all cursor-pointer text-[9.5px] font-mono tracking-wider"
+                title="Copy email to clipboard"
+              >
+                <span>{copiedEmail ? '✓ COPIED EMAIL' : 'COPY EMAIL'}</span>
+              </button>
             </motion.div>
           </motion.div>
 
-          {/* RIGHT: High-End Cinematic Backend Architecture Telemetry Panel */}
+          {/* RIGHT: High-End Cinematic Engineering Highlights & Editorial Plaque */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full lg:w-[28rem] xl:w-[32rem] pointer-events-auto select-none z-20 flex flex-col gap-4"
+            className="w-full lg:w-[28rem] xl:w-[31rem] pointer-events-auto select-none z-20 flex flex-col gap-4"
           >
-            {/* 1. Interactive Terminal Console */}
-            <div className="relative rounded-sm border border-[rgba(212,175,55,0.3)] bg-black/85 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.85)] p-4 sm:p-5 overflow-hidden group hover:border-[#D4AF37]/60 transition-all duration-500">
+            {/* 1. Core Engineering Pillars Bento Card (Replaces the fake terminal) */}
+            <div className="relative rounded-sm border border-[rgba(212,175,55,0.3)] bg-black/75 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.85)] p-5 overflow-hidden group hover:border-[#D4AF37]/60 transition-all duration-500">
               
               {/* Corner Ambient Gold Accents */}
               <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[#D4AF37]/70 pointer-events-none" />
@@ -273,73 +290,85 @@ export const HeroSection: React.FC = () => {
               <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[#D4AF37]/70 pointer-events-none" />
               <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[#D4AF37]/70 pointer-events-none" />
               
-              {/* Terminal Title Bar */}
-              <div className="flex items-center justify-between pb-3.5 mb-3.5 border-b border-[rgba(140,109,79,0.3)]">
-                <div className="flex items-center space-x-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]/90 inline-block" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]/90 inline-block" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F]/90 inline-block" />
-                  <span className="text-[10px] font-mono text-[#C5B8AB] ml-2 tracking-wider">
-                    backend_runtime.py
+              {/* Card Header Bar */}
+              <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-[rgba(140,109,79,0.3)]">
+                <span className="text-[10px] font-mono tracking-[0.22em] text-[#D4AF37] uppercase font-semibold">
+                  ENGINEERING PILLARS
+                </span>
+                <span className="text-[9px] font-mono text-[#8C6D4F] tracking-wider uppercase">
+                  PYTHON • DJANGO 5.1 • DRF
+                </span>
+              </div>
+
+              {/* 3 High-Impact Milestone Rows */}
+              <div className="space-y-2.5">
+                {/* Milestone 1: Query Optimization */}
+                <div className="p-3 rounded border border-[rgba(212,175,55,0.18)] bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#D4AF37]/40 transition-all flex items-center justify-between">
+                  <div>
+                    <span className="text-[9px] font-mono text-[#C5B8AB] block uppercase tracking-wider">
+                      DATABASE OPTIMIZATION
+                    </span>
+                    <span className="text-xs text-[#E8DFD8] font-medium">
+                      PostgreSQL Indexing &amp; Query Tuning
+                    </span>
+                  </div>
+                  <span 
+                    className="text-2xl font-light text-[#D4AF37] tracking-tight ml-3"
+                    style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+                  >
+                    +35% SPEEDUP
                   </span>
                 </div>
-                
-                <div className="flex items-center space-x-1.5 px-2 py-0.5 rounded-full bg-emerald-950/40 border border-emerald-500/30">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-[8.5px] font-mono text-emerald-400 tracking-wider">
-                    200 OK
+
+                {/* Milestone 2: Algorithmic Problem Solving */}
+                <div className="p-3 rounded border border-[rgba(212,175,55,0.18)] bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#D4AF37]/40 transition-all flex items-center justify-between">
+                  <div>
+                    <span className="text-[9px] font-mono text-[#C5B8AB] block uppercase tracking-wider">
+                      PROBLEM SOLVING &amp; CS LOGIC
+                    </span>
+                    <span className="text-xs text-[#E8DFD8] font-medium">
+                      Algorithms on Codeforces (@UtshoRoy)
+                    </span>
+                  </div>
+                  <span 
+                    className="text-2xl font-light text-white tracking-tight ml-3"
+                    style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+                  >
+                    154+ SOLVED
+                  </span>
+                </div>
+
+                {/* Milestone 3: Authentication & Security */}
+                <div className="p-3 rounded border border-[rgba(212,175,55,0.18)] bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#D4AF37]/40 transition-all flex items-center justify-between">
+                  <div>
+                    <span className="text-[9px] font-mono text-[#C5B8AB] block uppercase tracking-wider">
+                      AUTHENTICATION &amp; SECURITY
+                    </span>
+                    <span className="text-xs text-[#E8DFD8] font-medium">
+                      Stateless SimpleJWT &amp; 4-Tier RBAC
+                    </span>
+                  </div>
+                  <span 
+                    className="text-2xl font-light text-[#D4AF37] tracking-tight ml-3"
+                    style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+                  >
+                    ENTERPRISE
                   </span>
                 </div>
               </div>
 
-              {/* Live Backend Telemetry Logs */}
-              <div className="space-y-2 font-mono text-[10.5px] sm:text-[11px] leading-relaxed">
-                <div className="flex items-center justify-between text-[#8C6D4F]">
-                  <span>// ACTIVE PRODUCTION SERVICES</span>
-                  <span className="text-[#D4AF37] text-[9.5px]">DJANGO 5.1 + DRF</span>
-                </div>
-
-                <div className="p-2 rounded bg-black/60 border border-white/5 space-y-1">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="text-emerald-400 font-medium">[POST]</span>
-                    <span className="text-[#F0EBE5] truncate mx-2">/api/v1/auth/jwt/create/</span>
-                    <span className="text-[#D4AF37] text-[10px] shrink-0">24ms</span>
-                  </div>
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="text-emerald-400 font-medium">[GET]</span>
-                    <span className="text-[#F0EBE5] truncate mx-2">/api/v1/campus/resources/</span>
-                    <span className="text-[#D4AF37] text-[10px] shrink-0">35ms</span>
-                  </div>
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="text-emerald-400 font-medium">[POST]</span>
-                    <span className="text-[#F0EBE5] truncate mx-2">/api/v1/hospital/records/</span>
-                    <span className="text-[#D4AF37] text-[10px] shrink-0">19ms</span>
-                  </div>
-                </div>
-
-                {/* Key Metrics Grid */}
-                <div className="grid grid-cols-2 gap-2 pt-1">
-                  <div className="p-2 rounded border border-[rgba(212,175,55,0.2)] bg-black/50">
-                    <span className="text-[8.5px] text-[#C5B8AB] block uppercase tracking-wider">QUERY SPEEDUP</span>
-                    <span className="text-sm font-bold text-[#D4AF37]">+35% FASTER</span>
-                  </div>
-                  <div className="p-2 rounded border border-[rgba(212,175,55,0.2)] bg-black/50">
-                    <span className="text-[8.5px] text-[#C5B8AB] block uppercase tracking-wider">ALGORITHMS SOLVED</span>
-                    <span className="text-sm font-bold text-white">154+ CODEFORCES</span>
-                  </div>
-                </div>
-
-                <div className="flex flex-wrap gap-1.5 pt-2 text-[9px] uppercase tracking-wider">
-                  <span className="px-2 py-0.5 rounded border border-[#D4AF37]/30 bg-[#D4AF37]/10 text-[#D4AF37]">POSTGRESQL</span>
-                  <span className="px-2 py-0.5 rounded border border-[#D4AF37]/30 bg-[#D4AF37]/10 text-[#D4AF37]">SIMPLEJWT</span>
-                  <span className="px-2 py-0.5 rounded border border-[#D4AF37]/30 bg-[#D4AF37]/10 text-[#D4AF37]">4-TIER RBAC</span>
-                  <span className="px-2 py-0.5 rounded border border-white/10 bg-white/5 text-[#C5B8AB]">REDIS &amp; CELERY</span>
-                </div>
+              {/* Technologies Strip */}
+              <div className="flex flex-wrap gap-1.5 pt-4 text-[9px] uppercase tracking-wider">
+                <span className="px-2 py-0.5 rounded border border-[#D4AF37]/30 bg-[#D4AF37]/10 text-[#D4AF37] hover:border-[#D4AF37] transition-colors cursor-default">POSTGRESQL</span>
+                <span className="px-2 py-0.5 rounded border border-[#D4AF37]/30 bg-[#D4AF37]/10 text-[#D4AF37] hover:border-[#D4AF37] transition-colors cursor-default">SIMPLEJWT</span>
+                <span className="px-2 py-0.5 rounded border border-[#D4AF37]/30 bg-[#D4AF37]/10 text-[#D4AF37] hover:border-[#D4AF37] transition-colors cursor-default">4-TIER RBAC</span>
+                <span className="px-2 py-0.5 rounded border border-white/10 bg-white/5 text-[#C5B8AB] hover:text-white transition-colors cursor-default">REDIS &amp; CELERY</span>
+                <span className="px-2 py-0.5 rounded border border-white/10 bg-white/5 text-[#C5B8AB] hover:text-white transition-colors cursor-default">REST APIS</span>
               </div>
             </div>
 
             {/* 2. Floating Cinematic Editorial Quote & Calligraphy Signature */}
-            <div className="p-3.5 sm:p-4 rounded-sm backdrop-blur-xl bg-black/50 border border-[rgba(212,175,55,0.22)] shadow-[0_10px_35px_rgba(0,0,0,0.75)] hover:border-[rgba(212,175,55,0.45)] transition-all duration-300 group">
+            <div className="p-4 rounded-sm backdrop-blur-xl bg-black/60 border border-[rgba(212,175,55,0.22)] shadow-[0_10px_35px_rgba(0,0,0,0.75)] hover:border-[rgba(212,175,55,0.45)] transition-all duration-300 group">
               <span className="text-sm text-[#D4AF37] leading-none font-serif select-none drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] opacity-95">
                 “
               </span>
@@ -355,7 +384,7 @@ export const HeroSection: React.FC = () => {
 
               <div className="flex items-center justify-between">
                 <div
-                  className="text-[1.8rem] sm:text-[2rem] text-[#D4AF37] font-normal leading-none -ml-0.5 drop-shadow-[0_2px_15px_rgba(0,0,0,0.95)] group-hover:text-[#F7E7C4] transition-colors"
+                  className="text-[2rem] text-[#D4AF37] font-normal leading-none -ml-0.5 drop-shadow-[0_2px_15px_rgba(0,0,0,0.95)] group-hover:text-[#F7E7C4] transition-colors"
                   style={{
                     fontFamily: "'Herr Von Muellerhoff', 'Allura', cursive",
                     letterSpacing: '0.04em',
@@ -373,8 +402,23 @@ export const HeroSection: React.FC = () => {
 
         </div>
 
-        {/* Bottom Spacer */}
-        <div className="h-2" />
+        {/* Bottom Subtle Scroll To Explore Indicator */}
+        <div className="flex justify-center pt-2 pb-1 pointer-events-auto">
+          <a
+            href="#about"
+            aria-label="Scroll to About section"
+            className="group flex flex-col items-center gap-1 text-[9px] font-mono tracking-[0.28em] uppercase text-[#8C6D4F] hover:text-[#D4AF37] transition-colors"
+          >
+            <span>SCROLL TO EXPLORE</span>
+            <motion.span
+              animate={{ y: [0, 4, 0] }}
+              transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+              className="text-xs text-[#D4AF37]"
+            >
+              ↓
+            </motion.span>
+          </a>
+        </div>
       </div>
     </section>
   );
